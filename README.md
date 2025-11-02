@@ -60,3 +60,6 @@ Một bộ khung Unity cơ bản
 # Các hệ thống trong projects
 - Dotween Pro
 - Quick Outline
+
+# Design Partten
+- Singleton
