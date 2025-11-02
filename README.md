@@ -55,3 +55,8 @@ Một bộ khung Unity cơ bản
 | Shader               | `shader_`   | `shader_liquid`               |
 | Font                 | `font_`     | `font_time_new_romans`       |
 | Timeline Asset       | `tl_`       | `tl_action`                   |
+
+
+# Các hệ thống trong projects
+- Dotween Pro
+- Quick Outline
