@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 1070695244109589042}
   - component: {fileID: 4464120887140683725}
   m_Layer: 5
-  m_Name: SoundSettingGroupUI
+  m_Name: prefab_ui_setting_sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

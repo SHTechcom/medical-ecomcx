@@ -6,15 +6,14 @@
     - `key`: tên định danh âm thanh.
     - `clip`: file `AudioClip`.
     - `type`: loại âm thanh (`Music`, `Effect`, `UI`, `Voice`, `Ambient`).
-2. Thêm `SoundManager` vào scene. (_Main/Common/Prefabs/Manager/SoundManager) hoặc (
-   SampleFolders/Prefabs/Manager/SoundManager)
+2. Thêm `SoundManager` vào scene. (sample: SampleFolders/Prefabs/Manager/prefab_manager_sound)
 3. Gán các trường serialized trong **Inspector** (Đã gán sẵn trong prefab):
-    - **soundData** – dữ liệu âm thanh. (SampleFolders/SO/Sound/SoundData)
-    - **mixer** – `AudioMixer` chính. (SampleFolders/SO/Sound/_Mixer)
+    - **soundData** – dữ liệu âm thanh. (SampleFolders/SO/Sound/so_data_sound)
+    - **mixer** – `AudioMixer` chính. (SampleFolders/SO/Sound/_mixer)
     - **musicSource** – `AudioSource` riêng cho nhạc nền.
     - **mixerMusicGroup**, **mixerFXGroup**, **mixerUIGroup**, **mixerVoiceGroup**, **mixerAmbientGroup** – gán đúng
       group tương ứng trong `AudioMixer`.
-4. UI group: SampleFolders/Prefabs/UI/SoundSettingGroupUI
+4. UI group sample: SampleFolders/Prefabs/UI/prefab_ui_setting_sound
 
 * Các loại sound:
     - **Music** - Nhạc nền
