@@ -130,3 +130,12 @@ Xem ví dụ tại script: *SoundExample.cs*
 - Volume range: `0` → `1f`. (Đã tự động lerp(-80f,0f) trong SoundManager)
 - Khi `soundData` không có key, hàm sẽ return ngay mà ko gây lỗi.
 - Nếu sound dùng đơn lẻ có thể gọi play bằng AudioClip mà ko cần thêm key vào SoundData
+
+
+* Hồ sơ bệnh nhân: Patient Recorder
+- khởi tạo prefab patient_recorder
+- API:
+    + Init
+    + SetName
+    + SetAge
+- Select Option từ list để chọn loại bệnh
