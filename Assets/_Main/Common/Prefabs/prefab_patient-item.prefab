@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 8170596627775256611}
   - component: {fileID: 8074889914549456249}
   m_Layer: 5
-  m_Name: prefab_item
+  m_Name: prefab_patient-item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

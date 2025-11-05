@@ -7,15 +7,24 @@ public class SimpleItemDropdown : MonoBehaviour
 {
     public Button btn;
     public TMP_Text txt;
+    private string value;
 
-    public void OnClicked(Action action)
+    public SimpleItemDropdown Init()
     {
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(() => { action?.Invoke(); });
+        return this;
     }
 
-    public void SetText(string content)
+    public SimpleItemDropdown OnClicked(Action<string> action)
+    {
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(() => { action?.Invoke(value); });
+        return this;
+    }
+
+    public SimpleItemDropdown SetText(string content)
     {
         txt?.SetText(content);
+        value = content;
+        return this;
     }
 }

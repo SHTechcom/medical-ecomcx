@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -25,14 +26,15 @@ public class SimpleDropdown : MonoBehaviour
         dropdownButton.onClick.AddListener(ShowHideScrollView);
     }
 
-    public void Init(List<string> types)
+    public void Init(string[] types, Action<string> onSelectOption)
     {
-        for (int i = 0; i < types.Count; i++)
+        for (int i = 0; i < types.Length; i++)
         {
             var item = Instantiate(itemPrefab, itemContainer);
             items.Add(item);
-            item.OnClicked(ShowHideScrollView);
-            item.SetText($"{types}");
+            item.Init()
+                .SetText($"{types}")
+                .OnClicked(onSelectOption);
         }
     }
 
