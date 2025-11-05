@@ -1,23 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class AvatarEquipmentSystem : MonoBehaviour
+public class AvatarEquipmentSystem
 {
-    [ShowInInspector, ReadOnly] public readonly List<AvatarEquipment> CurrentClothsEquipments = new();
-    [ShowInInspector, ReadOnly] public readonly List<AvatarEquipment> CurrentToolsEquipments = new();
-    [ShowInInspector, ReadOnly] public readonly List<AvatarEquipment> CurrentMedicinesEquipments = new();
+    public static List<AvatarEquipment> CurrentClothsEquipments { get; private set; } = new();
+    public static List<AvatarEquipment> CurrentToolsAndMedicinesEquipments { get; private set; } = new();
 
     // Đăng ký sự kiện cần phải gọi hủy sự kiện tránh lỗi
     public static Action<AvatarEquipment> OnEquipItem;
     public static Action<AvatarEquipment> OnUnEquipItem;
 
+    public AvatarEquipmentSystem()
+    {
+        Init();
+    }
+
+    public AvatarEquipmentSystem(AvatarEquipmentPreset preset)
+    {
+        Init();
+        QuickApplyPreset(preset);
+    }
+
+    public static void Init()
+    {
+        CurrentClothsEquipments = new List<AvatarEquipment>();
+        CurrentToolsAndMedicinesEquipments = new List<AvatarEquipment>();
+    }
+
     /// <summary>
     /// Equip item, có thể gọi lần nữa để un equip
     /// </summary>
     /// <param name="item">so item</param>
-    public void Equip(AvatarEquipment item)
+    public static void Equip(AvatarEquipment item)
     {
         if (item == null)
         {
@@ -29,11 +44,8 @@ public class AvatarEquipmentSystem : MonoBehaviour
             case EquipmentType.Cloth:
                 InternalEquip(item, CurrentClothsEquipments);
                 break;
-            case EquipmentType.Tool:
-                InternalEquip(item, CurrentToolsEquipments);
-                break;
-            case EquipmentType.Medicine:
-                InternalEquip(item, CurrentMedicinesEquipments);
+            case EquipmentType.ToolAndMedicine:
+                InternalEquip(item, CurrentToolsAndMedicinesEquipments);
                 break;
             default:
                 LogWarning($"Equip failed: unknown type {item.type}");
@@ -45,7 +57,7 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// Un equip item
     /// </summary>
     /// <param name="item">so item</param>
-    public void UnEquip(AvatarEquipment item)
+    public static void UnEquip(AvatarEquipment item)
     {
         if (item == null)
         {
@@ -58,13 +70,28 @@ public class AvatarEquipmentSystem : MonoBehaviour
             case EquipmentType.Cloth:
                 InternalUnEquip(item, CurrentClothsEquipments);
                 break;
-            case EquipmentType.Tool:
-                InternalUnEquip(item, CurrentToolsEquipments);
-                break;
-            case EquipmentType.Medicine:
-                InternalUnEquip(item, CurrentMedicinesEquipments);
+            case EquipmentType.ToolAndMedicine:
+                InternalUnEquip(item, CurrentToolsAndMedicinesEquipments);
                 break;
         }
+    }
+
+    /// <summary>
+    /// Kiểm tra xem item có đang được equip hay ko
+    /// </summary>
+    /// <param name="item">so item</param>
+    /// <returns>true/false</returns>
+    public static bool IsEquipped(AvatarEquipment item)
+    {
+        switch (item.type)
+        {
+            case EquipmentType.Cloth:
+                return CurrentClothsEquipments.Contains(item);
+            case EquipmentType.ToolAndMedicine:
+                return CurrentToolsAndMedicinesEquipments.Contains(item);
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -72,7 +99,7 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// </summary>
     /// <param name="preset">so preset</param>
     /// <returns>true/false</returns>
-    public bool CheckValidAllPreset(AvatarEquipmentPreset preset)
+    public static bool CheckValidAllPreset(AvatarEquipmentPreset preset)
     {
         if (preset == null)
         {
@@ -81,10 +108,9 @@ public class AvatarEquipmentSystem : MonoBehaviour
         }
 
         bool clothValid = CheckValidPreset(EquipmentType.Cloth, preset);
-        bool toolValid = CheckValidPreset(EquipmentType.Tool, preset);
-        bool medValid = CheckValidPreset(EquipmentType.Medicine, preset);
+        bool toolValid = CheckValidPreset(EquipmentType.ToolAndMedicine, preset);
 
-        bool allValid = clothValid && toolValid && medValid;
+        bool allValid = clothValid && toolValid;
 
         if (allValid) Log("Preset matches current equipment");
         else Log("Preset does not match current equipment");
@@ -99,7 +125,7 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// <param name="type">EquipmentType</param>
     /// <param name="preset">so preset</param>
     /// <returns>true/false</returns>
-    public bool CheckValidPreset(EquipmentType type, AvatarEquipmentPreset preset)
+    public static bool CheckValidPreset(EquipmentType type, AvatarEquipmentPreset preset)
     {
         if (preset == null) return false;
 
@@ -107,10 +133,8 @@ public class AvatarEquipmentSystem : MonoBehaviour
         {
             case EquipmentType.Cloth:
                 return CheckListMatch("Cloths", preset.cloths, CurrentClothsEquipments);
-            case EquipmentType.Tool:
-                return CheckListMatch("Tools", preset.tools, CurrentToolsEquipments);
-            case EquipmentType.Medicine:
-                return CheckListMatch("Medicines", preset.medicines, CurrentMedicinesEquipments);
+            case EquipmentType.ToolAndMedicine:
+                return CheckListMatch("Tools And Medicines", preset.toolsAndMedicines, CurrentToolsAndMedicinesEquipments);
         }
 
         return false;
@@ -120,7 +144,7 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// Apply nhanh preset (Force equip)
     /// </summary>
     /// <param name="preset">so preset</param>
-    public void QuickApplyPreset(AvatarEquipmentPreset preset)
+    public static void QuickApplyPreset(AvatarEquipmentPreset preset)
     {
         if (preset == null) return;
 
@@ -131,14 +155,9 @@ public class AvatarEquipmentSystem : MonoBehaviour
             foreach (var item in preset.cloths) Equip(item);
         }
 
-        if (preset.tools != null)
+        if (preset.toolsAndMedicines != null)
         {
-            foreach (var item in preset.tools) Equip(item);
-        }
-
-        if (preset.medicines != null)
-        {
-            foreach (var item in preset.medicines) Equip(item);
+            foreach (var item in preset.toolsAndMedicines) Equip(item);
         }
 
         Log("Preset applied.");
@@ -150,7 +169,7 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// <param name="type">EquipmentType</param>
     /// <param name="preset">so preset</param>
     /// <returns>Danh sách đồ thiếu</returns>
-    public List<AvatarEquipment> GetMissingItems(EquipmentType type, AvatarEquipmentPreset preset)
+    public static List<AvatarEquipment> GetMissingItems(EquipmentType type, AvatarEquipmentPreset preset)
     {
         if (preset == null) return null;
 
@@ -158,10 +177,8 @@ public class AvatarEquipmentSystem : MonoBehaviour
         {
             case EquipmentType.Cloth:
                 return GetMissingItems(preset.cloths, CurrentClothsEquipments);
-            case EquipmentType.Tool:
-                return GetMissingItems(preset.tools, CurrentToolsEquipments);
-            case EquipmentType.Medicine:
-                return GetMissingItems(preset.medicines, CurrentMedicinesEquipments);
+            case EquipmentType.ToolAndMedicine:
+                return GetMissingItems(preset.toolsAndMedicines, CurrentToolsAndMedicinesEquipments);
         }
 
         return null;
@@ -173,7 +190,7 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// <param name="type">EquipmentType</param>
     /// <param name="preset">so preset</param>
     /// <returns>Danh sách đồ thừa</returns>
-    public List<AvatarEquipment> GetExtraItems(EquipmentType type, AvatarEquipmentPreset preset)
+    public static List<AvatarEquipment> GetExtraItems(EquipmentType type, AvatarEquipmentPreset preset)
     {
         if (preset == null) return null;
 
@@ -181,10 +198,8 @@ public class AvatarEquipmentSystem : MonoBehaviour
         {
             case EquipmentType.Cloth:
                 return GetExtraItems(preset.cloths, CurrentClothsEquipments);
-            case EquipmentType.Tool:
-                return GetExtraItems(preset.tools, CurrentToolsEquipments);
-            case EquipmentType.Medicine:
-                return GetExtraItems(preset.medicines, CurrentMedicinesEquipments);
+            case EquipmentType.ToolAndMedicine:
+                return GetExtraItems(preset.toolsAndMedicines, CurrentToolsAndMedicinesEquipments);
         }
 
         return null;
@@ -193,11 +208,10 @@ public class AvatarEquipmentSystem : MonoBehaviour
     /// <summary>
     /// Clear danh sách item đang equip
     /// </summary>
-    public void ClearEquipment()
+    public static void ClearEquipment()
     {
         CurrentClothsEquipments.Clear();
-        CurrentToolsEquipments.Clear();
-        CurrentMedicinesEquipments.Clear();
+        CurrentToolsAndMedicinesEquipments.Clear();
     }
 
     private static void InternalEquip(AvatarEquipment item, List<AvatarEquipment> list)
