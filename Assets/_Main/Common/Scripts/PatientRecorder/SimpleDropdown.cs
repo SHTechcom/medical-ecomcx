@@ -28,6 +28,7 @@ public class SimpleDropdown : MonoBehaviour
 
     public void Init(string[] types, Action<string> onSelectOption)
     {
+        //create new
         for (int i = 0; i < types.Length; i++)
         {
             var item = Instantiate(itemPrefab, itemContainer);
@@ -35,6 +36,16 @@ public class SimpleDropdown : MonoBehaviour
             item.Init()
                 .SetText($"{types}")
                 .OnClicked(onSelectOption);
+            item.gameObject.SetActive(true);
+        }
+
+        //hide if don't use
+        if (items.Count > types.Length)
+        {
+            for (int i = types.Length; i < items.Count; i++)
+            {
+                items[i].gameObject.SetActive(false);
+            }
         }
     }
 

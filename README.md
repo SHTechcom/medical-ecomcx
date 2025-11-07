@@ -132,10 +132,12 @@ Xem ví dụ tại script: *SoundExample.cs*
 - Nếu sound dùng đơn lẻ có thể gọi play bằng AudioClip mà ko cần thêm key vào SoundData
 
 
-* Hồ sơ bệnh nhân: Patient Recorder
+* Hồ sơ bệnh nhân: Patient Recorder Manager
 - khởi tạo prefab patient_recorder
 - API:
-    + Init
-    + SetName
-    + SetAge
+    + Instance
+    + Get - PartientRecorder
+        + Init
+        + SetName
+        + SetAge
 - Select Option từ list để chọn loại bệnh

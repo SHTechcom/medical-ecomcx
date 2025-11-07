@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 1390197166493826247}
   - component: {fileID: 4764628538890416808}
   m_Layer: 0
-  m_Name: patient-recorder
+  m_Name: prefab_patient-recorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
