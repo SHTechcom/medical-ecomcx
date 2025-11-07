@@ -31,4 +31,12 @@ public class PatientRecorderManager : MonoBehaviour
         }
         return patientRecorder;
     }
+
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
 }
