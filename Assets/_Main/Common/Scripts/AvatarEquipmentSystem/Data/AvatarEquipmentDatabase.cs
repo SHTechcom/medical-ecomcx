@@ -7,7 +7,6 @@ public class AvatarEquipmentDatabase : ScriptableObject
     // Để spawn object ở phần chọn đồ
     public List<AvatarEquipment> cloths;
     public List<AvatarEquipment> tools;
-    public List<AvatarEquipment> medicines;
     
 #if UNITY_EDITOR
     [Sirenix.OdinInspector.Button]
@@ -25,15 +24,7 @@ public class AvatarEquipmentDatabase : ScriptableObject
         {
             foreach (var item in tools)
             {
-                item.type = EquipmentType.Tool;
-            }
-        }
-
-        if (medicines != null && medicines.Count > 0)
-        {
-            foreach (var item in medicines)
-            {
-                item.type = EquipmentType.Medicine;
+                item.type = EquipmentType.ToolAndMedicine;
             }
         }
     }

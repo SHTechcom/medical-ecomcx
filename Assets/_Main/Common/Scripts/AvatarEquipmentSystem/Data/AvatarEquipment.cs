@@ -12,7 +12,7 @@ public class AvatarEquipment : ScriptableObject
 
 public enum EquipmentType
 {
+    None,
     Cloth,
-    Tool,
-    Medicine,
+    ToolAndMedicine,
 }
