@@ -2,7 +2,8 @@
 
 Một bộ khung Unity cơ bản
 
----
+------------------------------------------------------------------
+
 ## Chú ý khi build game:
 - Build:
     + WebGL
@@ -37,6 +38,8 @@ Một bộ khung Unity cơ bản
             ...
     + Folder Common sẽ chứa những hệ thống, model,... dùng chung xuyên suốt các  bài
 
+------------------------------------------------------------------
+
 ## 📁 Quy ước đặt tên Asset
 
 | Loại Asset           | Tiền tố     | Ví dụ                         |
@@ -56,15 +59,18 @@ Một bộ khung Unity cơ bản
 | Font                 | `font_`     | `font_time_new_romans`       |
 | Timeline Asset       | `tl_`       | `tl_action`                   |
 
+------------------------------------------------------------------
 
 # Các hệ thống trong projects
 - Dotween Pro
 - Quick Outline
 
+------------------------------------------------------------------
+
 # Design Partten
 - Singleton
 
-
+------------------------------------------------------------------
 
 # **SoundManager**
 
@@ -90,7 +96,7 @@ Một bộ khung Unity cơ bản
     - **Voice** - Sound giọng nói
     - **UI** - Sound UI
 
----
+------------------------------------------------------------------
 
 ### **2. Gọi trong code**
 
@@ -108,7 +114,7 @@ Xem ví dụ tại script: *SoundExample.cs*
 | Phát nhạc ngẫu nhiên         | `SoundManager.Instance.PlayRandomMusic();`                                     |
 | Set âm lượng từng loại       | `SoundManager.Instance.SetVolume((float)value, SoundType);`                    |
 
----
+------------------------------------------------------------------
 
 ## **Các trường quan trọng**
 
@@ -123,7 +129,7 @@ Xem ví dụ tại script: *SoundExample.cs*
 | **mixerVoiceGroup**   | `AudioMixerGroup` | Group cho giọng nói.                         |
 | **mixerAmbientGroup** | `AudioMixerGroup` | Group cho âm thanh môi trường.               |
 
----
+------------------------------------------------------------------
 
 ### **Ghi chú**
 
@@ -131,6 +137,7 @@ Xem ví dụ tại script: *SoundExample.cs*
 - Khi `soundData` không có key, hàm sẽ return ngay mà ko gây lỗi.
 - Nếu sound dùng đơn lẻ có thể gọi play bằng AudioClip mà ko cần thêm key vào SoundData
 
+------------------------------------------------------------------
 
 * Hồ sơ bệnh nhân: Patient Recorder Manager
 - khởi tạo prefab patient_recorder
@@ -141,3 +148,11 @@ Xem ví dụ tại script: *SoundExample.cs*
         + SetName
         + SetAge
 - Select Option từ list để chọn loại bệnh
+
+------------------------------------------------------------------
+
+* Dialog Manager:
+- API:
+    + Instance
+    + Get
+        + Set(name, content)
