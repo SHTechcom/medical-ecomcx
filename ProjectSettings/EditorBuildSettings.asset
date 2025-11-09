@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/_Main/Common/Scenes/Load.unity
     guid: 4a37be0688259c547b5b9eae0bce1cce
   - enabled: 1
-    path: Assets/Sample Folders/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Main/Phan2/Bai1/Scenes/Main.unity
+    guid: c14aba6aed4462040823bb5694e35532
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

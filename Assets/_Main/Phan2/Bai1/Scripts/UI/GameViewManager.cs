@@ -1,8 +1,9 @@
+using Frank;
 using UnityEngine;
 
 namespace Bai11
 {
-    public class GameViewManager : MonoBehaviour
+    public class GameViewManager : Singleton<GameViewManager>
     {
         [SerializeField] private BaseView[] views;
 

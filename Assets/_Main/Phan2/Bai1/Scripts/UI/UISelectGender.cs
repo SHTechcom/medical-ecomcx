@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Bai11
 {
-    public class SelectGender : BaseView
+    public class UISelectGender : BaseView
     {
         public Button selectMaleButton;
         public Button selectFemaleButton;
