@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Project/Avatar/Equipment")]
-public class AvatarEquipment : ScriptableObject
+namespace _Main.Common.Scripts.Avatar
 {
-    public string key;
-    public string equipmentName;
-    public EquipmentType type;
+    [CreateAssetMenu(menuName = "Project/Avatar/Equipment")]
+    public class AvatarEquipment : ScriptableObject
+    {
+        public string key;
+        public string equipmentName;
+        public EquipmentType type;
 
-    // prefab, sprite (UI)
-}
+        public GameObject modal;
+        public float scaleOnUI = 40;
+        public Vector3 rotate = new(-90f, 0, 0);
+    }
 
-public enum EquipmentType
-{
-    None,
-    Cloth,
-    ToolAndMedicine,
+    public enum EquipmentType
+    {
+        None,
+        Cloth,
+        ToolAndMedicine,
+    }
 }

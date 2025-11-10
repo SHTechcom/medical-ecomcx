@@ -15,3 +15,6 @@ MonoBehaviour:
   key: equipment_cloth_hat
   equipmentName: "M\u0169"
   type: 1
+  modal: {fileID: 8074807811489863251, guid: 454e44923d211ea4f9e28ad5f7f21a3f, type: 3}
+  scaleOnUI: 40
+  rotate: {x: -90, y: 0, z: 0}

@@ -1,5 +1,8 @@
-﻿public interface IAvatarEquipmentObject
+﻿namespace _Main.Common.Scripts.Avatar
 {
-    void OnEquip(AvatarEquipment equipment);
-    void OnUnEquip(AvatarEquipment equipment);
+    public interface IAvatarEquipmentObject
+    {
+        void OnEquip(AvatarEquipment equipment);
+        void OnUnEquip(AvatarEquipment equipment);
+    }
 }

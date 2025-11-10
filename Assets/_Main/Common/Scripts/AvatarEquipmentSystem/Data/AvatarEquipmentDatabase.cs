@@ -1,32 +1,42 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Project/Avatar/Equipment_Database")]
-public class AvatarEquipmentDatabase : ScriptableObject
+namespace _Main.Common.Scripts.Avatar
 {
-    // Để spawn object ở phần chọn đồ
-    public List<AvatarEquipment> cloths;
-    public List<AvatarEquipment> tools;
-    
-#if UNITY_EDITOR
-    [Sirenix.OdinInspector.Button]
-    public void QuickSetType()
+    [CreateAssetMenu(menuName = "Project/Avatar/Equipment_Database")]
+    public class AvatarEquipmentDatabase : ScriptableObject
     {
-        if (cloths != null && cloths.Count > 0)
+        // Để spawn object ở phần chọn đồ
+        public List<AvatarEquipment> cloths;
+        public List<AvatarEquipment> toolsAndMedicines;
+
+#if UNITY_EDITOR
+        [Sirenix.OdinInspector.Button]
+        public void QuickSetType()
         {
-            foreach (var item in cloths)
+            if (cloths != null && cloths.Count > 0)
             {
-                item.type = EquipmentType.Cloth;
+                foreach (var item in cloths)
+                {
+                    item.type = EquipmentType.Cloth;
+                }
+            }
+
+            if (toolsAndMedicines != null && toolsAndMedicines.Count > 0)
+            {
+                foreach (var item in toolsAndMedicines)
+                {
+                    item.type = EquipmentType.ToolAndMedicine;
+                }
             }
         }
 
-        if (tools != null && tools.Count > 0)
+        [Sirenix.OdinInspector.Button]
+        public void ImportFromPreset(AvatarEquipmentPreset preset)
         {
-            foreach (var item in tools)
-            {
-                item.type = EquipmentType.ToolAndMedicine;
-            }
+            cloths = preset.cloths;
+            toolsAndMedicines = preset.toolsAndMedicines;
         }
-    }
 #endif
+    }
 }

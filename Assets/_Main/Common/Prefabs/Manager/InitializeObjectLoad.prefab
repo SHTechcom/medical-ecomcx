@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objs:
-  - {fileID: 9128735968428032753, guid: 3c553d2f5a8bf9c418e988bcd8251ba1, type: 3}
-  - {fileID: 5574148497079946517, guid: 9bb33302eab49324c9317e9f3cafa906, type: 3}
-  dontDestroyOnLoad: 1
+  - {fileID: 5780773145502042024, guid: 7091e5d0cc3097a4db10bb05825cc141, type: 3}
+  preloadObjs: []
