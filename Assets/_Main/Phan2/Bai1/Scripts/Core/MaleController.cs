@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Bai11
@@ -28,15 +29,7 @@ namespace Bai11
         {
             isPlayingAnim = true;
             duongdantinhAnim.gameObject.SetActive(isPlayingAnim);
-
-            UIMaleMainView.Hide();
-            UIBack.OnClickedBack(() =>
-            {
-                StopTTAnim();
-                UIBack.Hide();
-                UIMaleMainView.Show();
-            });
-            UIBack.Show();
+            ShowUIBack(StopTTAnim);
         }
 
         private void StopTTAnim()
@@ -48,19 +41,24 @@ namespace Bai11
         private void PlayPathologicalSimulationAnim()
         {
             pathologicalSimulationAnimation.Play();
-            UIMaleMainView.Hide();
-            UIBack.OnClickedBack(() =>
-            {
-                StopPathologicalSimulationAnim();
-                UIBack.Hide();
-                UIMaleMainView.Show();
-            });
-            UIBack.Show();
+            ShowUIBack(StopPathologicalSimulationAnim);
         }
 
         private void StopPathologicalSimulationAnim()
         {
             pathologicalSimulationAnimation.Stop();
+        }
+
+        private void ShowUIBack(Action callback)
+        {
+            UIMaleMainView.Hide();
+            UIBack.OnClickedBack(() =>
+            {
+                callback?.Invoke();
+                UIBack.Hide();
+                UIMaleMainView.Show();
+            });
+            UIBack.Show();
         }
     }
 }

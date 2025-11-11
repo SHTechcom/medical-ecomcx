@@ -29,6 +29,10 @@ namespace Bai11
         public void Play()
         {
             DialogManager.Instance.Get().Set("...", "U xơ tuyến tiền liệt (phì đại) gây chèn ép niệu đạo, dẫn đến bí đái.");
+            DialogManager.Instance.Get().OnClicked(() =>
+            {
+                DialogManager.Instance.Get().Hide();
+            });
             DialogManager.Instance.Get().Show();
             isPlaying = true;
             tweenAnimR = tuyentienlietPivotRight.transform.DOScale(scalePivotMax, 1)

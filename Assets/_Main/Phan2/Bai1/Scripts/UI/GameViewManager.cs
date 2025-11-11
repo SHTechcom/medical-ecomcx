@@ -19,5 +19,15 @@ namespace Bai11
 
             return default(T);
         }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

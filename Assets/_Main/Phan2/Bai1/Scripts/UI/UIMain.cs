@@ -8,6 +8,7 @@ namespace Bai11
     {
         [SerializeField] private Button showInfoButton;
         [SerializeField] private Button showLinksButton;
+        [SerializeField] private Button showLessonTestButton;
 
         public void OnClickedShowInfoButton(Action callback)
         {
@@ -19,6 +20,12 @@ namespace Bai11
         {
             showLinksButton.onClick.RemoveAllListeners();
             showLinksButton.onClick.AddListener(() => { callback?.Invoke(); });
+        }
+
+        public void OnClickedShowLessonTestButton(Action callback)
+        {
+            showLessonTestButton.onClick.RemoveAllListeners();
+            showLessonTestButton.onClick.AddListener(() => { callback?.Invoke(); });
         }
     }
 }

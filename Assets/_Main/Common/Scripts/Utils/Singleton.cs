@@ -14,7 +14,7 @@ namespace Frank
             {
                 if (_instance == null)
                 {
-                    _instance = FindAnyObjectByType<T>();
+                    _instance = FindAnyObjectByType<T>(FindObjectsInactive.Include);
                 }
                 if (_instance == null)
                 {
@@ -45,7 +45,7 @@ namespace Frank
                     return _instance;
                 }
 
-                _instance = FindObjectOfType<T>();
+                _instance = FindObjectOfType<T>(true);
 
                 if (_instance != null)
                 {

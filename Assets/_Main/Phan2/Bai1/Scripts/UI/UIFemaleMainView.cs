@@ -7,11 +7,13 @@ namespace Bai11
     public class UIFemaleMainView : BaseView
     {
         [SerializeField] private Button backButton;
+        [SerializeField] private Button showVuButton;
         [SerializeField] private Button showOverviewButton;
         [SerializeField] private Button showDetailButton;
         [SerializeField] private Button playThuTinhAnimButton;
         [SerializeField] private Button playPathologicalSimulationButton;
 
+        public Button ShowVuButton => showVuButton;
         public Button ShowOverviewButton => showOverviewButton;
         public Button ShowDetailButton => showDetailButton;
         public Button PlayThuTinhAnimButton => playThuTinhAnimButton;
@@ -21,6 +23,12 @@ namespace Bai11
         {
             backButton.onClick.RemoveAllListeners();
             backButton.onClick.AddListener(() => { callback?.Invoke(); });
+        }
+
+        public void OnClickedShowVu(Action callback)
+        {
+            showVuButton.onClick.RemoveAllListeners();
+            showVuButton.onClick.AddListener(() => { callback?.Invoke(); });
         }
 
         public void OnClickedShowOverviewModel(Action callback)

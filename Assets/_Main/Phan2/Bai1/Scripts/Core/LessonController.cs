@@ -22,6 +22,7 @@ namespace Bai11
 
         public GameObject malePrefab;
         public GameObject femalePrefab;
+        public GameObject lessonTestPrefab;
         private GameObject genderSpawned;
         private Gender gender;
         private bool isShowingInfo = true;
@@ -42,6 +43,7 @@ namespace Bai11
                 UISelectGender.Hide();
                 UIMain.Show();
             });
+            UISelectGender.Show();
             UISelectGender.OnClickSelectFemale(() =>
             {
                 SelectGender(Gender.Female);
@@ -51,6 +53,7 @@ namespace Bai11
             //---------------------
             UIMain.OnClickedShowInfoButton(ShowHideInfo);
             UIMain.OnClickedShowLinksButton(ShowLinks);
+            UIMain.OnClickedShowLessonTestButton(ShowLessonTest);
         }
 
         public void ResetStatus()
@@ -84,11 +87,11 @@ namespace Bai11
             }
             if (gender == Gender.Male)
             {
-                genderSpawned = Instantiate(malePrefab);
+                genderSpawned = Instantiate(malePrefab, transform);
             }
             else
             {
-                genderSpawned = Instantiate(femalePrefab);
+                genderSpawned = Instantiate(femalePrefab, transform);
             }
         }
 
@@ -96,6 +99,12 @@ namespace Bai11
         {
             infoButtonSelected?.Deselect();
             infoButtonSelected = btn;
+        }
+
+        public void ShowLessonTest()
+        {
+            Instantiate(lessonTestPrefab);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Sirenix.Utilities;
 using UnityEngine;
 
@@ -5,11 +6,13 @@ namespace Bai11
 {
     public class FemaleController : MonoBehaviour
     {
+        [SerializeField] private GameObject truyenvuModel;
         [SerializeField] private GameObject overviewModel;
         [SerializeField] private GameObject detailModel;
         [SerializeField] private GameObject animThuTinh;
         private bool isPlayingAnimThuTinh;
         [SerializeField] private ChuaNgoaiTuCungAnim chuaNgoaiTuCungAnim;
+        [SerializeField] private GameObject tuthetucung;
 
         private UIFemaleMainView UIFemaleMainView => FemaleViewManager.Instance.GetView<UIFemaleMainView>();
         private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
@@ -17,6 +20,7 @@ namespace Bai11
         private void Start()
         {
             UIFemaleMainView.OnClickedBack(Back);
+            UIFemaleMainView.OnClickedShowVu(ShowTuyenVuModel);
             UIFemaleMainView.OnClickedShowOverviewModel(ShowOverviewModel);
             UIFemaleMainView.OnClickedShowDetailModel(ShowDetailMdoel);
             UIFemaleMainView.OnClickedPlayThuTinhAnim(PlayThuTinhAnim);
@@ -28,6 +32,14 @@ namespace Bai11
         private void Back()
         {
             LessonController.Instance.ResetStatus();
+        }
+
+        private void ShowTuyenVuModel()
+        {
+            Clear();
+            truyenvuModel.SetActive(true);
+            UIFemaleMainView.ShowOverviewButton.gameObject.SetActive(true);
+            UIFemaleMainView.ShowDetailButton.gameObject.SetActive(true);
         }
 
         private void ShowOverviewModel()
@@ -52,15 +64,7 @@ namespace Bai11
         {
             isPlayingAnimThuTinh = true;
             animThuTinh.SetActive(isPlayingAnimThuTinh);
-
-            UIFemaleMainView.Hide();
-            UIBack.OnClickedBack(() =>
-            {
-                StopThuTinhAnim();
-                UIBack.Hide();
-                UIFemaleMainView.Show();
-            });
-            UIBack.Show();
+            ShowUIBack(StopThuTinhAnim);
         }
 
         private void StopThuTinhAnim()
@@ -72,14 +76,7 @@ namespace Bai11
         private void PlayPathologicalSimulation()
         {
             chuaNgoaiTuCungAnim.Play();
-            UIFemaleMainView.Hide();
-            UIBack.OnClickedBack(() =>
-            {
-                StopPathologicalSimulation();
-                UIBack.Hide();
-                UIFemaleMainView.Show();
-            });
-            UIBack.Show();
+            ShowUIBack(StopPathologicalSimulation);
         }
 
         private void StopPathologicalSimulation()
@@ -90,9 +87,11 @@ namespace Bai11
         public void ResetStatus()
         {
             CameraController.Instance.SetType(CameraType.Free);
+            truyenvuModel.SetActive(false);
             overviewModel.SetActive(true);
             detailModel.SetActive(false);
 
+            UIFemaleMainView.ShowVuButton.gameObject.SetActive(true);
             UIFemaleMainView.ShowOverviewButton.gameObject.SetActive(false);
             UIFemaleMainView.ShowDetailButton.gameObject.SetActive(true);
             UIFemaleMainView.PlayThuTinhAnimButton.gameObject.SetActive(false);
@@ -100,6 +99,46 @@ namespace Bai11
 
             animThuTinh.SetActive(false);
             chuaNgoaiTuCungAnim.Stop();
+        }
+
+        public void Clear()
+        {
+            CameraController.Instance.SetType(CameraType.Free);
+            truyenvuModel.SetActive(false);
+            overviewModel.SetActive(false);
+            detailModel.SetActive(false);
+
+            UIFemaleMainView.ShowVuButton.gameObject.SetActive(false);
+            UIFemaleMainView.ShowOverviewButton.gameObject.SetActive(false);
+            UIFemaleMainView.ShowDetailButton.gameObject.SetActive(false);
+            UIFemaleMainView.PlayThuTinhAnimButton.gameObject.SetActive(false);
+            UIFemaleMainView.PlayPathologicalSimulationButton.gameObject.SetActive(false);
+
+            animThuTinh.SetActive(false);
+            chuaNgoaiTuCungAnim.Stop();
+        }
+
+        public void ShowTuTheTuCung()
+        {
+            tuthetucung.SetActive(true);
+            ShowUIBack(HideTuTheTuCung);
+        }
+
+        public void HideTuTheTuCung()
+        {
+            tuthetucung.SetActive(false);
+        }
+
+        private void ShowUIBack(Action callback)
+        {
+            UIFemaleMainView.Hide();
+            UIBack.OnClickedBack(() =>
+            {
+                callback?.Invoke();
+                UIBack.Hide();
+                UIFemaleMainView.Show();
+            });
+            UIBack.Show();
         }
     }
 }
