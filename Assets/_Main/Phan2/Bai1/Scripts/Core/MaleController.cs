@@ -9,31 +9,58 @@ namespace Bai11
         [SerializeField] private PathologicalSimulationAnimation pathologicalSimulationAnimation;
 
         private UIMaleMainView UIMaleMainView => MaleViewManager.Instance.GetView<UIMaleMainView>();
+        private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
 
         private void Start()
         {
             //register events
-            UIMaleMainView.OnClickedPlayTTAnim(PlayStopTTAnim);
-            UIMaleMainView.OnClickedPlayPathologicalSimulation(PlayStopPlayPathologicalSimulationAnim);
+            UIMaleMainView.OnClickedBack(Back);
+            UIMaleMainView.OnClickedPlayTTAnim(PlayTTAnim);
+            UIMaleMainView.OnClickedPlayPathologicalSimulation(PlayPathologicalSimulationAnim);
         }
 
-        private void PlayStopTTAnim()
+        private void Back()
         {
-            isPlayingAnim = !isPlayingAnim;
+            LessonController.Instance.ResetStatus();
+        }
+
+        private void PlayTTAnim()
+        {
+            isPlayingAnim = true;
+            duongdantinhAnim.gameObject.SetActive(isPlayingAnim);
+
+            UIMaleMainView.Hide();
+            UIBack.OnClickedBack(() =>
+            {
+                StopTTAnim();
+                UIBack.Hide();
+                UIMaleMainView.Show();
+            });
+            UIBack.Show();
+        }
+
+        private void StopTTAnim()
+        {
+            isPlayingAnim = false;
             duongdantinhAnim.gameObject.SetActive(isPlayingAnim);
         }
 
-        private void PlayStopPlayPathologicalSimulationAnim()
+        private void PlayPathologicalSimulationAnim()
         {
-            if (pathologicalSimulationAnimation.Isplaying)
+            pathologicalSimulationAnimation.Play();
+            UIMaleMainView.Hide();
+            UIBack.OnClickedBack(() =>
             {
-                pathologicalSimulationAnimation.Stop();
-            }
-            else
-            {
-                pathologicalSimulationAnimation.Play();
-            }
+                StopPathologicalSimulationAnim();
+                UIBack.Hide();
+                UIMaleMainView.Show();
+            });
+            UIBack.Show();
+        }
 
+        private void StopPathologicalSimulationAnim()
+        {
+            pathologicalSimulationAnimation.Stop();
         }
     }
 }

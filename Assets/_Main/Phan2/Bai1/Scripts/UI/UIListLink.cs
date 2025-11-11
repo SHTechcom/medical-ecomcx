@@ -27,7 +27,7 @@ namespace Bai11
 
         private void Start()
         {
-            //OnCloseButton(Hide);
+            OnCloseButton(Hide);
         }
 
         public void OnCloseButton(Action callback)

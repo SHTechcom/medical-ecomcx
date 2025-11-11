@@ -1,3 +1,4 @@
+using Frank;
 using Sirenix.Utilities;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Bai11
         Female
     }
 
-    public class LessonController : MonoBehaviour
+    public class LessonController : Singleton<LessonController>
     {
         private static LinkItem[] linkItems =
         {
@@ -24,6 +25,7 @@ namespace Bai11
         private GameObject genderSpawned;
         private Gender gender;
         private bool isShowingInfo = true;
+        private InfoButton infoButtonSelected;
 
         private UIListLink UIListLink => GameViewManager.Instance.GetView<UIListLink>();
         private UIMain UIMain => GameViewManager.Instance.GetView<UIMain>();
@@ -33,12 +35,6 @@ namespace Bai11
         private void Start()
         {
             UIListLink.SetListLinks(linkItems);
-            UIListLink.OnCloseButton(() =>
-            {
-                UISelectGender.Show();
-                UIListLink.Hide();
-            });
-            UIListLink.Show();
             //---------------------
             UISelectGender.OnClickSelectMale(() =>
             {
@@ -54,6 +50,17 @@ namespace Bai11
             });
             //---------------------
             UIMain.OnClickedShowInfoButton(ShowHideInfo);
+            UIMain.OnClickedShowLinksButton(ShowLinks);
+        }
+
+        public void ResetStatus()
+        {
+            if (genderSpawned != null)
+            {
+                Destroy(genderSpawned);
+            }
+            UIMain.Hide();
+            UISelectGender.Show();
         }
 
         public void ShowHideInfo()
@@ -61,6 +68,11 @@ namespace Bai11
             var btns = FindObjectsOfType<InfoButton>(true);
             isShowingInfo = !isShowingInfo;
             btns.ForEach(i => i.Display(isShowingInfo));
+        }
+
+        public void ShowLinks()
+        {
+            UIListLink.Show();
         }
 
         public void SelectGender(Gender gender)
@@ -78,6 +90,12 @@ namespace Bai11
             {
                 genderSpawned = Instantiate(femalePrefab);
             }
+        }
+
+        public void SelectInfoButton(InfoButton btn)
+        {
+            infoButtonSelected?.Deselect();
+            infoButtonSelected = btn;
         }
     }
 }

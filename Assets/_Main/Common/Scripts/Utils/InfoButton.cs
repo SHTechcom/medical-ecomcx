@@ -1,4 +1,6 @@
+using Bai11;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class InfoButton : MonoBehaviour
@@ -8,6 +10,9 @@ public class InfoButton : MonoBehaviour
     public Vector3 positionTarget;
     public Vector3 rotationTarget;
     public float distance = 0.3f;
+
+    public UnityEvent OnSelectedEvent;
+    public UnityEvent OnDeselectedEvent;
 
     private void Awake()
     {
@@ -27,6 +32,7 @@ public class InfoButton : MonoBehaviour
 
     private void OnClick()
     {
+        Select();
         if (!isRotateSelf)
         {
             CameraController.Instance.OnCameraAroundTarget(transform, distance);
@@ -35,6 +41,17 @@ public class InfoButton : MonoBehaviour
         {
             CameraController.Instance.OnClickAndDrag(positionTarget, rotationTarget);
         }
+    }
+
+    public void Select()
+    {
+        LessonController.Instance.SelectInfoButton(this);
+        OnSelectedEvent?.Invoke();
+    }
+
+    public void Deselect()
+    {
+        OnDeselectedEvent?.Invoke();
     }
 
     public void Show()

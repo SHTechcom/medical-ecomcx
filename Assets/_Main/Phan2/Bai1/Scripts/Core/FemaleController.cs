@@ -1,3 +1,4 @@
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Bai11
@@ -11,15 +12,22 @@ namespace Bai11
         [SerializeField] private ChuaNgoaiTuCungAnim chuaNgoaiTuCungAnim;
 
         private UIFemaleMainView UIFemaleMainView => FemaleViewManager.Instance.GetView<UIFemaleMainView>();
+        private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
 
         private void Start()
         {
+            UIFemaleMainView.OnClickedBack(Back);
             UIFemaleMainView.OnClickedShowOverviewModel(ShowOverviewModel);
             UIFemaleMainView.OnClickedShowDetailModel(ShowDetailMdoel);
-            UIFemaleMainView.OnClickedPlayThuTinhAnim(OnClickedPlayThuTinhAnim);
-            UIFemaleMainView.OnClickedPlayPathologicalSimulation(OnClickedPlayPathologicalSimulation);
+            UIFemaleMainView.OnClickedPlayThuTinhAnim(PlayThuTinhAnim);
+            UIFemaleMainView.OnClickedPlayPathologicalSimulation(PlayPathologicalSimulation);
 
             ResetStatus();
+        }
+
+        private void Back()
+        {
+            LessonController.Instance.ResetStatus();
         }
 
         private void ShowOverviewModel()
@@ -40,22 +48,43 @@ namespace Bai11
             UIFemaleMainView.PlayPathologicalSimulationButton.gameObject.SetActive(true);
         }
 
-        private void OnClickedPlayThuTinhAnim()
+        private void PlayThuTinhAnim()
         {
-            isPlayingAnimThuTinh = !isPlayingAnimThuTinh;
+            isPlayingAnimThuTinh = true;
+            animThuTinh.SetActive(isPlayingAnimThuTinh);
+
+            UIFemaleMainView.Hide();
+            UIBack.OnClickedBack(() =>
+            {
+                StopThuTinhAnim();
+                UIBack.Hide();
+                UIFemaleMainView.Show();
+            });
+            UIBack.Show();
+        }
+
+        private void StopThuTinhAnim()
+        {
+            isPlayingAnimThuTinh = false;
             animThuTinh.SetActive(isPlayingAnimThuTinh);
         }
 
-        private void OnClickedPlayPathologicalSimulation()
+        private void PlayPathologicalSimulation()
         {
-            if (chuaNgoaiTuCungAnim.IsPlaying)
+            chuaNgoaiTuCungAnim.Play();
+            UIFemaleMainView.Hide();
+            UIBack.OnClickedBack(() =>
             {
-                chuaNgoaiTuCungAnim.Stop();
-            }
-            else
-            {
-                chuaNgoaiTuCungAnim.Play();
-            }
+                StopPathologicalSimulation();
+                UIBack.Hide();
+                UIFemaleMainView.Show();
+            });
+            UIBack.Show();
+        }
+
+        private void StopPathologicalSimulation()
+        {
+            chuaNgoaiTuCungAnim.Stop();
         }
 
         public void ResetStatus()
