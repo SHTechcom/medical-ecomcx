@@ -23,6 +23,8 @@ namespace Bai11
         private float timer;
         private List<TTPathMover> items = new List<TTPathMover>();
 
+        public bool loop;
+
         private void Start()
         {
             pool = new ObjectPool<TTPathMover>(pathMoverPrefab, poolSize, transform);
@@ -51,7 +53,7 @@ namespace Bai11
             var mover = pool.Get();
             items.Add(mover);
             mover.transform.position = pathPoints[0].position;
-            mover.Init(pool, pathPoints, moveDuration, easeType);
+            mover.Init(pool, pathPoints, moveDuration, easeType, loop);
         }
 
         public void Show()

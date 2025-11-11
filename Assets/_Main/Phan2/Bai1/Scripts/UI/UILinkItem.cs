@@ -3,21 +3,37 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UILinkItem : MonoBehaviour
+namespace Bai11
 {
-    public Button selectButton;
-    public TMP_Text labelText;
-    public TMP_Text linkText;
-
-    public void OnClickedSelectLink(Action callback)
+    public class UILinkItem : MonoBehaviour
     {
-        selectButton.onClick.RemoveAllListeners();
-        selectButton.onClick.AddListener(() => { callback?.Invoke(); });
-    }
+        public Button selectButton;
+        public TMP_Text labelText;
+        public TMP_Text linkText;
 
-    public void Set(string label, string link)
-    {
-        labelText.text = label;
-        linkText.text = link;
+        private string link;
+
+        private void Start()
+        {
+            OnClickedSelectLink(OpenLink);
+        }
+
+        public void OnClickedSelectLink(Action callback)
+        {
+            selectButton.onClick.RemoveAllListeners();
+            selectButton.onClick.AddListener(() => { callback?.Invoke(); });
+        }
+
+        public void Set(string label, string link)
+        {
+            this.link = link;
+            labelText.text = label;
+            linkText.text = link;
+        }
+
+        private void OpenLink()
+        {
+            Application.OpenURL($"{link}");
+        }
     }
 }

@@ -12,12 +12,15 @@ namespace Bai11
         private Tween moveTween;
         private ObjectPool<TTPathMover> pool;
 
-        public void Init(ObjectPool<TTPathMover> poolRef, Transform[] path, float duration, Ease ease = Ease.Linear)
+        private bool loop;
+
+        public void Init(ObjectPool<TTPathMover> poolRef, Transform[] path, float duration, Ease ease, bool loop)
         {
             pool = poolRef;
             pathPoints = path;
             moveDuration = duration;
             easeType = ease;
+            this.loop = loop;
             MoveAlongPath();
         }
 
@@ -36,9 +39,17 @@ namespace Bai11
 
             moveTween?.Kill();
 
-            moveTween = transform.DOPath(path, moveDuration, PathType.CatmullRom)
-                .SetEase(easeType)
-                .SetLoops(-1, LoopType.Restart);
+            if (loop)
+            {
+                moveTween = transform.DOPath(path, moveDuration, PathType.CatmullRom)
+                    .SetEase(easeType)
+                    .SetLoops(-1, LoopType.Restart);
+            }
+            else
+            {
+                moveTween = transform.DOPath(path, moveDuration, PathType.CatmullRom)
+                    .SetEase(easeType);
+            }
         }
 
         private void OnDisable()
