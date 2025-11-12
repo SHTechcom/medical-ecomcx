@@ -1,3 +1,4 @@
+using _Main.Common.UI;
 using Frank;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -31,6 +32,8 @@ namespace Bai11
         private UIListLink UIListLink => GameViewManager.Instance.GetView<UIListLink>();
         private UIMain UIMain => GameViewManager.Instance.GetView<UIMain>();
         private UISelectGender UISelectGender => GameViewManager.Instance.GetView<UISelectGender>();
+        private UISetting UISetting => GameViewManager.Instance.GetView<UISetting>();
+
         public Gender Gender => gender;
 
         private void Start()
@@ -51,6 +54,14 @@ namespace Bai11
                 UIMain.Show();
             });
             //---------------------
+            UISetting.OnClickedClose(() =>
+            {
+                UISetting.Hide();
+            });
+            UIMain.OnClickedSetting(() =>
+            {
+                UISetting.Show();
+            });
             UIMain.OnClickedShowInfoButton(ShowHideInfo);
             UIMain.OnClickedShowLinksButton(ShowLinks);
             UIMain.OnClickedShowLessonTestButton(ShowLessonTest);

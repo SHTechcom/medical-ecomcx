@@ -6,9 +6,16 @@ namespace Bai11
 {
     public class UIMain : BaseView
     {
+        [SerializeField] private Button settingButton;
         [SerializeField] private Button showInfoButton;
         [SerializeField] private Button showLinksButton;
         [SerializeField] private Button showLessonTestButton;
+
+        public void OnClickedSetting(Action callback)
+        {
+            settingButton.onClick.RemoveAllListeners();
+            settingButton.onClick.AddListener(() => { callback?.Invoke(); });
+        }
 
         public void OnClickedShowInfoButton(Action callback)
         {
