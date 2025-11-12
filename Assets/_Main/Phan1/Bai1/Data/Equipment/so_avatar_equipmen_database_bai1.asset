@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9dc32f79b5fa504e906a2b0c0c12931, type: 2}
   toolsAndMedicines:
   - {fileID: 11400000, guid: 2e69adf31165bb04fb714dbba45acc5b, type: 2}
+  - {fileID: 11400000, guid: 15c4135b97e8a854d925c23fbd59afbb, type: 2}
