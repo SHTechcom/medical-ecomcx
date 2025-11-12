@@ -1,7 +1,10 @@
+using System;
+using System.Text;
 using _Main.Common.UI;
 using Frank;
 using Sirenix.Utilities;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Bai11
 {
@@ -28,6 +31,10 @@ namespace Bai11
         private Gender gender;
         private bool isShowingInfo = true;
         private InfoButton infoButtonSelected;
+        [Header("Record")]
+        public Sprite iconRecord;
+        public Sprite iconRecording;
+        public bool isRecording;
 
         private UIListLink UIListLink => GameViewManager.Instance.GetView<UIListLink>();
         private UIMain UIMain => GameViewManager.Instance.GetView<UIMain>();

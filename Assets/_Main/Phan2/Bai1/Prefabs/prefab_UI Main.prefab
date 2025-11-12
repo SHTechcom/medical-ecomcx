@@ -610,6 +610,9 @@ MonoBehaviour:
   showInfoButton: {fileID: 8648573770649545630}
   showLinksButton: {fileID: 8764822812606077704}
   showLessonTestButton: {fileID: 7595820190525729415}
+  captureButton: {fileID: 0}
+  recordButton: {fileID: 0}
+  downloadRecordButton: {fileID: 0}
 --- !u!1 &6922790828669210879
 GameObject:
   m_ObjectHideFlags: 0
