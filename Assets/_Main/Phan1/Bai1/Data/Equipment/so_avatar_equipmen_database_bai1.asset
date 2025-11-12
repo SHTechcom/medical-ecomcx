@@ -15,5 +15,17 @@ MonoBehaviour:
   cloths:
   - {fileID: 11400000, guid: e977af675aed5004e8e415f951c9ac74, type: 2}
   - {fileID: 11400000, guid: d9dc32f79b5fa504e906a2b0c0c12931, type: 2}
+  - {fileID: 11400000, guid: 8920170226fb10547ab42e327171fe1e, type: 2}
   toolsAndMedicines:
+  - {fileID: 11400000, guid: ea7d8ce6134978149b3d5ffaa24516fe, type: 2}
+  - {fileID: 11400000, guid: 753f696e24102604482bfb9cce655797, type: 2}
+  - {fileID: 11400000, guid: b92a582ed5ed23346875fff1ba8528d5, type: 2}
+  - {fileID: 11400000, guid: f1f895d6bc59149478afc76c358eb2ea, type: 2}
+  - {fileID: 11400000, guid: 84b168f17c1cc944c940ebc5dcd57771, type: 2}
+  - {fileID: 11400000, guid: 21422f14be0b6a04ca63a52661a28f66, type: 2}
+  - {fileID: 11400000, guid: ca7eb4129b429544ca4c265471b129d9, type: 2}
+  - {fileID: 11400000, guid: e3eb6aa382b71a447a654486e9b1ad63, type: 2}
+  - {fileID: 11400000, guid: c693cf5d4e4a53d429eee521178e0f68, type: 2}
+  - {fileID: 11400000, guid: b2cdd0241c5e28b4b8c9427c8187216e, type: 2}
   - {fileID: 11400000, guid: 2e69adf31165bb04fb714dbba45acc5b, type: 2}
+  - {fileID: 11400000, guid: 437d277ea7ee39046b162def7fa7d2b9, type: 2}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace _Main.Common.Scripts.Avatar
 {
@@ -19,7 +20,14 @@ namespace _Main.Common.Scripts.Avatar
             modalSpawn.transform.localScale = Vector3.one;
             modalParent.localScale = equipment.scaleOnUI * Vector3.one;
             modalParent.localEulerAngles = equipment.rotate;
-            fitBoxColliderMeshes.GetFitBoxCollider();
+            modalSpawn.transform.position -= equipment.errorPos;
+            fitBoxColliderMeshes.GetFitBoxCollider(0);
+
+            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+            foreach (var r in renderers)
+            {
+                r.shadowCastingMode = ShadowCastingMode.Off;
+            }
         }
 
         private void ClearChild()

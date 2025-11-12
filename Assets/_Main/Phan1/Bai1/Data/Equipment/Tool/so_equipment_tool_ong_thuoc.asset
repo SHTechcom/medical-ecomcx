@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: tool_ong_thuoc
   equipmentName: "\u1ED0ng thu\u1ED1c"
-  type: 0
+  type: 2
   modal: {fileID: 919132149155446097, guid: 162188412e5797f4ca3ca39cea5ab499, type: 3}
   scaleOnUI: 40
-  rotate: {x: -90, y: 0, z: 0}
+  rotate: {x: 0, y: 0, z: 0}
+  errorPos: {x: 0, y: 0, z: 0}

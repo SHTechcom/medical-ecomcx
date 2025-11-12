@@ -1,5 +1,6 @@
 ﻿using System;
 using _Main.Phan1.Bai1.Scripts.UI;
+using _Main.Phan1.Bai1.Scripts.UI.WarningUI;
 using _Main.Phan1.Bai1.StepSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -69,10 +70,12 @@ namespace _Main.Phan1.Bai1.Scripts.TaskSystem
             {
                 if (!step.IsStepCompleted())
                 {
+                    WarningUI.Instance?.Show(warningText);
                     Debug.Log($"{step.name}: {warningText}");
                     return false;
                 }
             }
+
 
             return true;
         }

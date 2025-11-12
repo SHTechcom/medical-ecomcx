@@ -12,7 +12,7 @@ namespace _Main.Phan1.Bai1.Scripts
         private Transform _firstParent;
         private Vector3 _startPos;
         private Tween _moveTween;
-        
+
         private void Awake()
         {
             _startPos = transform.position;
@@ -46,7 +46,7 @@ namespace _Main.Phan1.Bai1.Scripts
         public void ReturnFirstPos()
         {
             _moveTween?.Kill();
-            transform.parent.SetParent(_firstParent, true);
+            if (_firstParent != null) transform.parent.SetParent(_firstParent, true);
             transform.DOMove(_startPos, moveDuration).SetEase(Ease.Linear);
         }
     }

@@ -20,7 +20,6 @@ namespace _Main.Phan1.Bai1.Scripts
 
             if (string.IsNullOrEmpty(clip.name) || !anim.GetClip(clip.name))
             {
-                Debug.LogError("Clip không tồn tại!");
                 return;
             }
 
@@ -33,6 +32,26 @@ namespace _Main.Phan1.Bai1.Scripts
             slider.onValueChanged.AddListener(OnSliderChanged);
 
             OnSliderChanged(slider.value);
+        }
+
+
+        public void SetClip(AnimationClip newClip)
+        {
+            if (string.IsNullOrEmpty(newClip.name) || !anim.GetClip(newClip.name))
+            {
+                return;
+            }
+
+            clip = newClip;
+
+            anim.Play(clip.name);
+            state = anim[clip.name];
+            state.speed = 0;
+            clipLength = state.length;
+            slider.minValue = 0;
+            slider.maxValue = clipLength;
+            slider.onValueChanged.RemoveAllListeners();
+            slider.onValueChanged.AddListener(OnSliderChanged);
         }
 
         void OnSliderChanged(float value)
