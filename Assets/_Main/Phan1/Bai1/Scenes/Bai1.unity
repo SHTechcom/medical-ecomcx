@@ -679,7 +679,8 @@ MonoBehaviour:
   localDirection: {x: 0, y: 0, z: 1}
   distance: 0.05
   slider: {fileID: 1913761865}
-  maxSpeed: 1
+  maxSpeed: 0.5
+  warningText: "\u0110\u1EA9y qu\xE1 nhanh"
   reachPercent: 0.98
   onReachValue:
     m_PersistentCalls:
