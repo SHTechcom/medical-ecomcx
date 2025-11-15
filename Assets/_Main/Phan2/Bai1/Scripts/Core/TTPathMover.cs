@@ -5,56 +5,58 @@ namespace Bai11
 {
     public class TTPathMover : MonoBehaviour
     {
-        [SerializeField] private Transform[] pathPoints;
-        [SerializeField] private float moveDuration = 3f;
-        [SerializeField] private Ease easeType = Ease.Linear;
-
-        private Tween moveTween;
         private ObjectPool<TTPathMover> pool;
+        private Tween moveTween;
 
-        private bool loop;
-
-        public void Init(ObjectPool<TTPathMover> poolRef, Transform[] path, float duration, Ease ease, bool loop)
+        public void Init(ObjectPool<TTPathMover> pool, Transform[] pathPoints, float moveDuration, Ease easeType, bool loop)
         {
-            pool = poolRef;
-            pathPoints = path;
-            moveDuration = duration;
-            easeType = ease;
-            this.loop = loop;
-            MoveAlongPath();
-        }
+            this.pool = pool;
 
-        private void MoveAlongPath()
-        {
-            if (pathPoints == null || pathPoints.Length == 0)
-            {
-                Debug.LogWarning("PathMover: pathPoints rỗng!");
-                return;
-            }
-
-            // Convert Transform[] -> Vector3[]
+            // Chuẩn bị path
             Vector3[] path = new Vector3[pathPoints.Length];
             for (int i = 0; i < pathPoints.Length; i++)
                 path[i] = pathPoints[i].position;
 
+            // Tạo tween di chuyển
             moveTween?.Kill();
+            moveTween = transform.DOPath(path, moveDuration, PathType.Linear)
+                                 .SetEase(easeType)
+                                 .OnComplete(OnComplete);
 
             if (loop)
-            {
-                moveTween = transform.DOPath(path, moveDuration, PathType.CatmullRom)
-                    .SetEase(easeType)
-                    .SetLoops(-1, LoopType.Restart);
-            }
-            else
-            {
-                moveTween = transform.DOPath(path, moveDuration, PathType.CatmullRom)
-                    .SetEase(easeType);
-            }
+                moveTween.SetLoops(-1, LoopType.Restart);
+
+            moveTween.timeScale = 1f;
+        }
+
+        private void OnComplete()
+        {
+            // Khi chạy xong thì trả về pool
+            pool.Release(this);
+        }
+
+        public void SetSpeed(float speed)
+        {
+            if (moveTween != null && moveTween.IsActive())
+                moveTween.timeScale = speed;
+        }
+
+        public void Pause()
+        {
+            if (moveTween != null && moveTween.IsActive())
+                moveTween.Pause();
+        }
+
+        public void Resume()
+        {
+            if (moveTween != null && moveTween.IsActive())
+                moveTween.Play();
         }
 
         private void OnDisable()
         {
             moveTween?.Kill();
+            moveTween = null;
         }
     }
 }

@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Bai11
 {
     public class TTPathSpawner : MonoBehaviour
     {
+        private UIMaleMainView UIMaleMainView => MaleViewManager.Instance.GetView<UIMaleMainView>();
+
         [Header("Path Settings")]
         [SerializeField] private Transform[] pathPoints;
         [SerializeField] private TTPathMover pathMoverPrefab;
@@ -17,7 +20,7 @@ namespace Bai11
 
         [Header("Spawn Settings")]
         [SerializeField] private float spawnInterval = 0.5f; // mỗi 0.5s spawn 1 mover
-        [SerializeField] private int maxActive = 5; // số mover tối đa hoạt động cùng lúc
+        [SerializeField] private int maxActive = 5;          // số mover tối đa hoạt động cùng lúc
 
         private ObjectPool<TTPathMover> pool;
         private float timer;
@@ -25,13 +28,33 @@ namespace Bai11
 
         public bool loop;
 
+        [Header("Speed Control")]
+        [SerializeField] private float minSpeed = 0.25f;
+        [SerializeField] private float maxSpeed = 4f;
+        [SerializeField] private float speedStep = 0.25f;
+
+        private float currentSpeed = 1f; // 1 = bình thường
+
+        [SerializeField] Button slow, fast, stop, play;
+
+        // bật/tắt việc spawn & chạy tween
+        private bool isSpawning = true;
+
         private void Start()
         {
             pool = new ObjectPool<TTPathMover>(pathMoverPrefab, poolSize, transform);
+
+            slow.onClick.AddListener(OnClickSpeedDown);
+            fast.onClick.AddListener(OnClickSpeedUp);
+            stop.onClick.AddListener(OnClickStop);
+            play.onClick.AddListener(OnClickPlay);
+
         }
 
         private void Update()
         {
+            if (!isSpawning) return; // Stop thì không spawn thêm
+
             timer += Time.deltaTime;
             if (timer >= spawnInterval)
             {
@@ -52,8 +75,13 @@ namespace Bai11
 
             var mover = pool.Get();
             items.Add(mover);
+
             mover.transform.position = pathPoints[0].position;
+
             mover.Init(pool, pathPoints, moveDuration, easeType, loop);
+
+            // áp speed hiện tại cho mover vừa spawn
+            mover.SetSpeed(currentSpeed);
         }
 
         public void Show()
@@ -63,9 +91,79 @@ namespace Bai11
 
         public void Hide()
         {
-            items.ForEach(i => pool.Release(i));
+            // trả tất cả mover về pool
+            items.ForEach(i =>
+            {
+                if (i != null)
+                    pool.Release(i);
+            });
             items.Clear();
+
             gameObject.SetActive(false);
+        }
+
+        // ========== CÁC HÀM NÚT ==========
+
+        // PLAY: tiếp tục chạy + spawn thêm
+        public void OnClickPlay()
+        {
+            isSpawning = true;
+            ResumeAllMovers();
+            Debug.Log("[TTPathSpawner] PLAY");
+        }
+
+        // STOP: dừng lại tại chỗ, không reset, không trả pool
+        public void OnClickStop()
+        {
+            isSpawning = false;
+            PauseAllMovers();
+            Debug.Log("[TTPathSpawner] STOP (PAUSE)");
+        }
+
+        // Tăng tốc
+        public void OnClickSpeedUp()
+        {
+            currentSpeed = Mathf.Clamp(currentSpeed + speedStep, minSpeed, maxSpeed);
+            ApplySpeedToAllMovers();
+            Debug.Log("[TTPathSpawner] Speed Up -> " + currentSpeed);
+        }
+
+        // Giảm tốc
+        public void OnClickSpeedDown()
+        {
+            currentSpeed = Mathf.Clamp(currentSpeed - speedStep, minSpeed, maxSpeed);
+            ApplySpeedToAllMovers();
+            Debug.Log("[TTPathSpawner] Speed Down -> " + currentSpeed);
+        }
+
+        // ========== HỖ TRỢ ==========
+
+        private void ApplySpeedToAllMovers()
+        {
+            foreach (var mover in items)
+            {
+                if (mover == null) continue;
+                mover.SetSpeed(currentSpeed);
+            }
+        }
+
+        private void PauseAllMovers()
+        {
+            foreach (var mover in items)
+            {
+                if (mover == null) continue;
+                mover.Pause();
+            }
+        }
+
+        private void ResumeAllMovers()
+        {
+            foreach (var mover in items)
+            {
+                if (mover == null) continue;
+                mover.Resume();
+                mover.SetSpeed(currentSpeed); // đảm bảo speed đúng sau resume
+            }
         }
     }
 }
