@@ -35,7 +35,10 @@ namespace Bai11
 
         private float currentSpeed = 1f; // 1 = bình thường
 
-        [SerializeField] Button slow, fast, stop, play;
+        [SerializeField] Button slow, fast, stop;
+        bool isStop = false;
+        [SerializeField] Sprite stopImage,playImage;
+        [SerializeField] Image imageNeedChange;
 
         // bật/tắt việc spawn & chạy tween
         private bool isSpawning = true;
@@ -47,7 +50,6 @@ namespace Bai11
             slow.onClick.AddListener(OnClickSpeedDown);
             fast.onClick.AddListener(OnClickSpeedUp);
             stop.onClick.AddListener(OnClickStop);
-            play.onClick.AddListener(OnClickPlay);
 
         }
 
@@ -104,20 +106,26 @@ namespace Bai11
 
         // ========== CÁC HÀM NÚT ==========
 
-        // PLAY: tiếp tục chạy + spawn thêm
-        public void OnClickPlay()
-        {
-            isSpawning = true;
-            ResumeAllMovers();
-            Debug.Log("[TTPathSpawner] PLAY");
-        }
-
         // STOP: dừng lại tại chỗ, không reset, không trả pool
         public void OnClickStop()
         {
-            isSpawning = false;
-            PauseAllMovers();
-            Debug.Log("[TTPathSpawner] STOP (PAUSE)");
+
+            if (isStop) 
+            {
+                isStop= false;
+                imageNeedChange.sprite = stopImage;
+                isSpawning = true;
+                ResumeAllMovers();
+                Debug.Log("[TTPathSpawner] PLAY");
+            }
+            else
+            {
+                isStop = true;
+                imageNeedChange.sprite = playImage;
+                isSpawning = false;
+                PauseAllMovers();
+                Debug.Log("[TTPathSpawner] STOP (PAUSE)");
+            }
         }
 
         // Tăng tốc
