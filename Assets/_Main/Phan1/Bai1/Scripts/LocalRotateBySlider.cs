@@ -23,7 +23,7 @@
         {
             if (target == null) return;
 
-            float angle = Mathf.Round(value * maxAngle * 2f) * 0.5f;
+            float angle = Mathf.Round((value / (slider.maxValue - slider.minValue)) * maxAngle * 2f) * 0.5f;
 
             Vector3 rot = target.localEulerAngles;
             switch (axis)

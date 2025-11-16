@@ -1,17 +1,36 @@
-﻿using UnityEngine;
+﻿using _Main.Phan1.Bai1.Scripts.UI;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Main.Phan1.Bai1.Scripts
 {
     public class AnimationCaller : MonoBehaviour
     {
+        public bool registerUIControl;
         public Animation anim;
-
-        public void PlayAnimation(AnimationClip animationClip)
+        
+        public void PlayAnimation(AnimationClip clip)
         {
-            if (anim != null && !string.IsNullOrEmpty(animationClip.name))
+            if (clip == null || anim == null)
+                return;
+
+            if (registerUIControl)
             {
-                anim.Play(animationClip.name);
+                AnimationUIControl.Instance?.RegisterAnimationControl(anim, clip);
+                ShowAnimationUIControl();
             }
+
+            anim.Play(clip.name);
+        }
+
+        public void ShowAnimationUIControl()
+        {
+            AnimationUIControl.Instance?.Show();
+        }
+
+        public void HideAnimationUIControl()
+        {
+            AnimationUIControl.Instance?.Hide();
         }
     }
 }

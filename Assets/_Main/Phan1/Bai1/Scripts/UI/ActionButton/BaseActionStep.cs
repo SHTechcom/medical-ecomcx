@@ -1,11 +1,8 @@
-﻿using System;
-using _Main.Phan1.Bai1.Scripts.UI;
-using _Main.Phan1.Bai1.Scripts.UI.WarningUI;
+﻿using _Main.Phan1.Bai1.Scripts.UI;
 using _Main.Phan1.Bai1.StepSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace _Main.Phan1.Bai1.Scripts.TaskSystem
 {
@@ -31,6 +28,7 @@ namespace _Main.Phan1.Bai1.Scripts.TaskSystem
         [SerializeField] private bool isCountCondition = true;
 
         [Tooltip("True => OnEnable(); False => StartStep()")] [SerializeField] private bool addActionOnEnable;
+        [SerializeField] private bool canSkip;
         [SerializeField] private string actionName;
         [SerializeField] private UnityEvent onCompleteAction;
 
@@ -45,11 +43,16 @@ namespace _Main.Phan1.Bai1.Scripts.TaskSystem
         {
             base.StartStep();
             if (!addActionOnEnable && addActionToUI && conditionCount > 0) AddAction();
+            if (canSkip)
+            {
+                StepUIControl.Instance.ShowSkip(true);
+            }
         }
 
         public override void EndStep()
         {
             base.EndStep();
+            if (_uiItem != null) ActionButtonSpawner.Instance.Remove(_uiItem);
         }
 
         public void AddAction()

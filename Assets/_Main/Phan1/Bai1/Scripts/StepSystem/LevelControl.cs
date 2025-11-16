@@ -59,6 +59,11 @@ namespace _Main.Phan1.Bai1.StepSystem
             stepList[CurrentStepIndex].StartStep();
         }
 
+        public virtual void SkipStep()
+        {
+            stepList[CurrentStepIndex].EndStepAndGoToNextStep();
+        }
+
         public virtual void EndLevel()
         {
             Debug.Log("End Level");

@@ -3,7 +3,7 @@ using Frank;
 using TMPro;
 using UnityEngine;
 
-namespace _Main.Phan1.Bai1.Scripts.UI.WarningUI
+namespace _Main.Phan1.Bai1.Scripts.UI
 {
     public class WarningUI : Singleton<WarningUI>
     {

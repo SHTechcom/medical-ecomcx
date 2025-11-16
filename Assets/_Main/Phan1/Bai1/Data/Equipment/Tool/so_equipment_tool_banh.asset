@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5520dfd47c642acba426a21931d5ea3, type: 3}
   m_Name: so_equipment_tool_banh
   m_EditorClassIdentifier: 
-  key: tool_banh
-  equipmentName: Banh
+  key: tool_panh
+  equipmentName: Panh
   type: 2
   modal: {fileID: 919132149155446097, guid: 857238b5aa3a4a54a8925975f0d98dd3, type: 3}
   scaleOnUI: 40

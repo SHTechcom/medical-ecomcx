@@ -1,4 +1,5 @@
 ﻿using System;
+using _Main.Phan1.Bai1.Scripts.UI;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,8 +11,7 @@ namespace _Main.Phan1.Bai1.StepSystem
     {
         public static ConditionStep Current;
 
-        [Title("STEP SYSTEM")]
-        [SerializeField] protected bool autoEnableWhenStartStep = true;
+        [Title("STEP SYSTEM")] [SerializeField] protected bool autoEnableWhenStartStep = true;
         [SerializeField] protected bool autoDisableWhenEndStep;
         [SerializeField] protected float delayToNextStep;
 
@@ -19,7 +19,8 @@ namespace _Main.Phan1.Bai1.StepSystem
         public UnityEvent onStepStarted;
         public UnityEvent onStepEnded;
 
-        protected bool _isStepCompleted = false;
+        [Title("DESCRIPTION")] [SerializeField] private bool showDescription;
+        [SerializeField] private string description;
 
         protected Tween _tween;
 
@@ -30,8 +31,6 @@ namespace _Main.Phan1.Bai1.StepSystem
 
         #region PUBLIC METHOD
 
-        public bool IsStepCompleted() => _isStepCompleted;
-
         public override void StartStep()
         {
             if (autoEnableWhenStartStep) gameObject.SetActive(true);
@@ -41,6 +40,11 @@ namespace _Main.Phan1.Bai1.StepSystem
             onStepStarted?.Invoke();
 
             if (conditionCount == 0) EndStepAndGoToNextStep();
+            else
+            {
+                BottomUIControl.Instance.Active(showDescription);
+                BottomUIControl.Instance.SetDescriptionText(description);
+            }
         }
 
         public override void EndStep()
@@ -55,15 +59,10 @@ namespace _Main.Phan1.Bai1.StepSystem
 
             void CallEndStep()
             {
+                BottomUIControl.Instance.Active(false);
                 base.EndStep();
                 if (autoDisableWhenEndStep) gameObject.SetActive(false);
             }
-        }
-
-        public void EndStepAndGoToNextStep()
-        {
-            _isStepCompleted = true;
-            EndStep();
         }
 
         #endregion

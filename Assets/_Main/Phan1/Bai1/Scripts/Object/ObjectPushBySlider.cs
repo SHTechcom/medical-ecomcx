@@ -1,4 +1,4 @@
-﻿using _Main.Phan1.Bai1.Scripts.UI.WarningUI;
+﻿using _Main.Phan1.Bai1.Scripts.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;

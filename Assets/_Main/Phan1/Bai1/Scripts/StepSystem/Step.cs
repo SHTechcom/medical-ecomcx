@@ -8,6 +8,10 @@ namespace _Main.Phan1.Bai1.StepSystem
         public event Action OnStartStep;
         public event Action OnEndStep;
 
+        protected bool _isStepCompleted = false;
+
+        public bool IsStepCompleted() => _isStepCompleted;
+
         public virtual void InitStep()
         {
         }
@@ -22,6 +26,12 @@ namespace _Main.Phan1.Bai1.StepSystem
         {
             Debug.Log($"End {name}");
             OnEndStep?.Invoke();
+        }
+        
+        public void EndStepAndGoToNextStep()
+        {
+            _isStepCompleted = true;
+            EndStep();
         }
     }
 }

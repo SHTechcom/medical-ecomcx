@@ -583,7 +583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc4ca2a99684c90af2644edda6d1a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 521136808122778995}
   target: {fileID: 549265473738504327}
 --- !u!222 &400006225368575250
 CanvasRenderer:

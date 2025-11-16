@@ -40,6 +40,31 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Bomtiem_rig:Thanbomtiem_J/Bomtiem_rig:Pittong_J
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.0319, y: -0.0158, z: -0.0066}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 1
+        value: {x: -0.0244, y: -0.0063, z: -0.0024}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Taydieuduong_rig:Group/Taydieuduong_rig:DeformationSystem/Taydieuduong_rig:Root_M/Taydieuduong_rig:RootPart1_M/Taydieuduong_rig:RootPart2_M/Taydieuduong_rig:Spine1_M/Taydieuduong_rig:Spine1Part1_M/Taydieuduong_rig:Spine1Part2_M/Taydieuduong_rig:Chest_M/Taydieuduong_rig:Scapula_R/Taydieuduong_rig:Shoulder_R/Taydieuduong_rig:ShoulderPart1_R/Taydieuduong_rig:ShoulderPart2_R/Taydieuduong_rig:Elbow_R/Taydieuduong_rig:ElbowPart1_R/Taydieuduong_rig:ElbowPart2_R/Taydieuduong_rig:Wrist_R/Taydieuduong_rig:ThumbFinger1_R/Taydieuduong_rig:ThumbFinger2_R
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -159,6 +184,96 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
     path: Bomtiem_rig:Thanbomtiem_J/Bomtiem_rig:Pittong_J
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.0319
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.0244
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Taydieuduong_rig:Group/Taydieuduong_rig:DeformationSystem/Taydieuduong_rig:Root_M/Taydieuduong_rig:RootPart1_M/Taydieuduong_rig:RootPart2_M/Taydieuduong_rig:Spine1_M/Taydieuduong_rig:Spine1Part1_M/Taydieuduong_rig:Spine1Part2_M/Taydieuduong_rig:Chest_M/Taydieuduong_rig:Scapula_R/Taydieuduong_rig:Shoulder_R/Taydieuduong_rig:ShoulderPart1_R/Taydieuduong_rig:ShoulderPart2_R/Taydieuduong_rig:Elbow_R/Taydieuduong_rig:ElbowPart1_R/Taydieuduong_rig:ElbowPart2_R/Taydieuduong_rig:Wrist_R/Taydieuduong_rig:ThumbFinger1_R/Taydieuduong_rig:ThumbFinger2_R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.0158
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.0063
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Taydieuduong_rig:Group/Taydieuduong_rig:DeformationSystem/Taydieuduong_rig:Root_M/Taydieuduong_rig:RootPart1_M/Taydieuduong_rig:RootPart2_M/Taydieuduong_rig:Spine1_M/Taydieuduong_rig:Spine1Part1_M/Taydieuduong_rig:Spine1Part2_M/Taydieuduong_rig:Chest_M/Taydieuduong_rig:Scapula_R/Taydieuduong_rig:Shoulder_R/Taydieuduong_rig:ShoulderPart1_R/Taydieuduong_rig:ShoulderPart2_R/Taydieuduong_rig:Elbow_R/Taydieuduong_rig:ElbowPart1_R/Taydieuduong_rig:ElbowPart2_R/Taydieuduong_rig:Wrist_R/Taydieuduong_rig:ThumbFinger1_R/Taydieuduong_rig:ThumbFinger2_R
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.0066
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.0024
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Taydieuduong_rig:Group/Taydieuduong_rig:DeformationSystem/Taydieuduong_rig:Root_M/Taydieuduong_rig:RootPart1_M/Taydieuduong_rig:RootPart2_M/Taydieuduong_rig:Spine1_M/Taydieuduong_rig:Spine1Part1_M/Taydieuduong_rig:Spine1Part2_M/Taydieuduong_rig:Chest_M/Taydieuduong_rig:Scapula_R/Taydieuduong_rig:Shoulder_R/Taydieuduong_rig:ShoulderPart1_R/Taydieuduong_rig:ShoulderPart2_R/Taydieuduong_rig:Elbow_R/Taydieuduong_rig:ElbowPart1_R/Taydieuduong_rig:ElbowPart2_R/Taydieuduong_rig:Wrist_R/Taydieuduong_rig:ThumbFinger1_R/Taydieuduong_rig:ThumbFinger2_R
     classID: 4
     script: {fileID: 0}
     flags: 0
