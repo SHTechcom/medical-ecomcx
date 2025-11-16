@@ -50504,11 +50504,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 930959484888110979, guid: cc6a29abd21ea15478407c1775a548be, type: 3}
       propertyPath: acceptExtra
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 930959484888110979, guid: cc6a29abd21ea15478407c1775a548be, type: 3}
       propertyPath: acceptMissing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 930959484888110979, guid: cc6a29abd21ea15478407c1775a548be, type: 3}
       propertyPath: onCompleteChooseEquipment.m_PersistentCalls.m_Calls.Array.data[0].m_Target
