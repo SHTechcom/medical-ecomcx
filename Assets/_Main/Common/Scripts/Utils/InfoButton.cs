@@ -1,4 +1,4 @@
-using Bai11;
+﻿using Bai11;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -11,11 +11,21 @@ public class InfoButton : MonoBehaviour
     public Vector3 rotationTarget;
     public float distance = 0.3f;
 
+    // ⭐ THÊM: ref để bạn gán bộ phận 3D tương ứng
+    [Header("Kéo bộ phận 3D cần giữ lại vào đây")]
+    public GameObject targetPart;
+
     public UnityEvent OnSelectedEvent;
     public UnityEvent OnDeselectedEvent;
+    [SerializeField] string content;
+    private Dialog infoDialog => DialogManager.Instance.Get();
+    AudioSource audio;
 
     private void Awake()
     {
+        if (btn == null)
+            btn = GetComponent<Button>();
+
         btn.onClick.AddListener(OnClick);
     }
 
@@ -32,6 +42,9 @@ public class InfoButton : MonoBehaviour
 
     private void OnClick()
     {
+        infoDialog.Set("...", content);
+        infoDialog.Show();
+        audio.Play();
         Select();
         if (!isRotateSelf)
         {
@@ -46,6 +59,11 @@ public class InfoButton : MonoBehaviour
     public void Select()
     {
         LessonController.Instance.SelectInfoButton(this);
+
+        // ⭐ Thông báo cho ListShowHide biết InfoButton nào vừa được chọn
+        if (ListShowHide.Instance != null)
+            ListShowHide.Instance.OnInfoButtonSelected(this);
+
         OnSelectedEvent?.Invoke();
     }
 
