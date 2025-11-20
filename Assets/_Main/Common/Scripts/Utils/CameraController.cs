@@ -53,6 +53,7 @@ public class CameraController : Singleton<CameraController>
         {
             if (isModeAroundTarget)
             {
+                if (target == null) return;
                 Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
                 Vector3 dir = new Vector3(0, 0, -distance);
                 transform.position = target.position + rotation * dir;

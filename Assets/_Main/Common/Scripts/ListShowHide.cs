@@ -41,8 +41,18 @@ public class ListShowHide : MonoBehaviour
         UpdateButtonLabel();
     }
 
+    public void Show()
+    {
+        showHideAllBtn.gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        showHideAllBtn.gameObject.SetActive(false);
+    }
+
     // ⭐ Hàm được gọi khi bấm showHideAllBtn
-    private void OnClickShowHideAll()
+    public void OnClickShowHideAll()
     {
         if (currentSelected == null || currentSelected.targetPart == null)
         {
@@ -66,6 +76,18 @@ public class ListShowHide : MonoBehaviour
         }
 
         UpdateButtonLabel();
+    }
+
+    public void ShowAll()
+    {
+        isShowingAll = true;  // ⭐ Toggle state
+
+        if (isShowingAll)
+        {
+            // ⭐ HIỆN TẤT CẢ
+            foreach (var part in obj)
+                if (part != null) part.SetActive(true);
+        }
     }
 
     // ⭐ Đổi text nút theo trạng thái

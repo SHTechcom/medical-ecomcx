@@ -31,10 +31,6 @@ namespace Bai11
         private Gender gender;
         private bool isShowingInfo = true;
         private InfoButton infoButtonSelected;
-        [Header("Record")]
-        public Sprite iconRecord;
-        public Sprite iconRecording;
-        public bool isRecording;
 
         private UIListLink UIListLink => GameViewManager.Instance.GetView<UIListLink>();
         private UIMain UIMain => GameViewManager.Instance.GetView<UIMain>();
@@ -42,6 +38,7 @@ namespace Bai11
         private UISetting UISetting => GameViewManager.Instance.GetView<UISetting>();
 
         public Gender Gender => gender;
+        public GameObject LessonSpawned => genderSpawned;
 
         private void Start()
         {
@@ -88,6 +85,13 @@ namespace Bai11
         {
             var btns = FindObjectsOfType<InfoButton>(true);
             isShowingInfo = !isShowingInfo;
+            btns.ForEach(i => i.Display(isShowingInfo));
+        }
+
+        public void SetShowHideInfo(bool isShow)
+        {
+            var btns = FindObjectsOfType<InfoButton>(true);
+            isShowingInfo = isShow;
             btns.ForEach(i => i.Display(isShowingInfo));
         }
 

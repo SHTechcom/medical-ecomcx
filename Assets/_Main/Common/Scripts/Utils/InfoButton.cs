@@ -1,4 +1,5 @@
 ﻿using Bai11;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,7 +20,7 @@ public class InfoButton : MonoBehaviour
     public UnityEvent OnDeselectedEvent;
     [SerializeField] string content;
     private Dialog infoDialog => DialogManager.Instance.Get();
-    AudioSource audio;
+    private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
 
     private void Awake()
     {
@@ -44,7 +45,6 @@ public class InfoButton : MonoBehaviour
     {
         infoDialog.Set("...", content);
         infoDialog.Show();
-        audio.Play();
         Select();
         if (!isRotateSelf)
         {
@@ -54,6 +54,21 @@ public class InfoButton : MonoBehaviour
         {
             CameraController.Instance.OnClickAndDrag(positionTarget, rotationTarget);
         }
+        //
+        LessonController.Instance.LessonSpawned.GetComponent<MaleController>()?.UIMaleMainView.Hide();
+        LessonController.Instance.LessonSpawned.GetComponent<FemaleController>()?.UIFemaleMainView.Hide();
+        UIBack.Show();
+        UIBack.OnClickedBack(() =>
+        {
+            var btns = FindObjectsOfType<InfoButton>(true);
+            btns.ForEach(i => i.Deselect());
+            LessonController.Instance.LessonSpawned.GetComponent<MaleController>()?.UIMaleMainView.Show();
+            LessonController.Instance.LessonSpawned.GetComponent<FemaleController>()?.UIFemaleMainView.Show();
+            UIBack.Hide();
+            ListShowHide.Instance?.Hide();
+            ListShowHide.Instance?.ShowAll();
+            infoDialog.Hide();
+        });
     }
 
     public void Select()
@@ -62,7 +77,10 @@ public class InfoButton : MonoBehaviour
 
         // ⭐ Thông báo cho ListShowHide biết InfoButton nào vừa được chọn
         if (ListShowHide.Instance != null)
+        {
             ListShowHide.Instance.OnInfoButtonSelected(this);
+            ListShowHide.Instance.Show();
+        }
 
         OnSelectedEvent?.Invoke();
     }

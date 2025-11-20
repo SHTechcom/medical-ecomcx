@@ -9254,6 +9254,10 @@ PrefabInstance:
       value: Item Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
+      propertyPath: content
+      value: "N\xFAm v\xFA"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
       value: 
       objectReference: {fileID: 8157304653534209098}
@@ -9489,6 +9493,10 @@ PrefabInstance:
     - target: {fileID: 4732505425887555607, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: m_Name
       value: Item Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
+      propertyPath: content
+      value: "V\xF2i tr\u1EE9ng"
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -9993,6 +10001,10 @@ PrefabInstance:
       value: Item Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
+      propertyPath: content
+      value: "Bu\u1ED3n tr\u1EE9ng"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
       value: 
       objectReference: {fileID: 5349043861385659081}
@@ -10228,6 +10240,10 @@ PrefabInstance:
     - target: {fileID: 4732505425887555607, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: m_Name
       value: Item Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
+      propertyPath: content
+      value: "\u1ED0ng ti\u1EBFt s\u1EEFa"
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -10658,6 +10674,10 @@ PrefabInstance:
     - target: {fileID: 4732505425887555607, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: m_Name
       value: Item Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
+      propertyPath: content
+      value: "Ng\u1EF1c"
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart

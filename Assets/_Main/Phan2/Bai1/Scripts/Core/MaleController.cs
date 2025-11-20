@@ -9,7 +9,7 @@ namespace Bai11
         [SerializeField] private GameObject duongdantinhAnim;
         [SerializeField] private PathologicalSimulationAnimation pathologicalSimulationAnimation;
 
-        private UIMaleMainView UIMaleMainView => MaleViewManager.Instance.GetView<UIMaleMainView>();
+        public UIMaleMainView UIMaleMainView => MaleViewManager.Instance.GetView<UIMaleMainView>();
         private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
         [SerializeField] private GameObject UI;
 
@@ -52,9 +52,11 @@ namespace Bai11
 
         private void ShowUIBack(Action callback)
         {
+            LessonController.Instance.SetShowHideInfo(false);
             UIMaleMainView.Hide();
             UIBack.OnClickedBack(() =>
             {
+                LessonController.Instance.SetShowHideInfo(true);
                 UI.SetActive(false);
                 callback?.Invoke();
                 UIBack.Hide();

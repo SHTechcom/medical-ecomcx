@@ -10,6 +10,13 @@ namespace Bai11
         [SerializeField] private Button showInfoButton;
         [SerializeField] private Button showLinksButton;
         [SerializeField] private Button showLessonTestButton;
+        [SerializeField] private Button showInfoLessonBtn;
+
+        public void OnClickedShowInfoLesson(Action callback)
+        {
+            showInfoLessonBtn.onClick.RemoveAllListeners();
+            showInfoLessonBtn.onClick.AddListener(() => { callback?.Invoke(); });
+        }
 
         public void OnClickedSetting(Action callback)
         {

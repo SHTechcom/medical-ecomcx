@@ -15,7 +15,7 @@ namespace Bai11
         [SerializeField] private GameObject tuthetucung;
         [SerializeField] private GameObject UI;
 
-        private UIFemaleMainView UIFemaleMainView => FemaleViewManager.Instance.GetView<UIFemaleMainView>();
+        public UIFemaleMainView UIFemaleMainView => FemaleViewManager.Instance.GetView<UIFemaleMainView>();
         private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
 
         private void Start()
