@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 1d6c439e2028232449b800950092303f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461266108416
+    m_Localized: Scrotum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 832470401024
+    m_Localized: Penis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 918906617856
+    m_Localized: Epididymis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 974309179392
+    m_Localized: Vas deferens
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1071793192960
+    m_Localized: Testicles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1126658883584
+    m_Localized: Seminal vesicles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1182128553984
+    m_Localized: Prostate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1233571692544
+    m_Localized: Milk ducts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1313250885632
+    m_Localized: Chest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1357488209920
+    m_Localized: Nipple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1394968510464
+    m_Localized: Ovaries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1455945302016
+    m_Localized: Fallopian tubes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1492712570880
+    m_Localized: Uterus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1652666548224
+    m_Localized: Cervix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1770320969728
+    m_Localized: Outside the vagina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3115958550528
+    m_Localized: Simulation of the vas deferens
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4078878474240
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8917314322432
+    m_Localized: Pathological simulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9664168869888
+    m_Localized: Show mammary gland model
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9666970664960
+    m_Localized: Show overview model
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9667616587776
+    m_Localized: Show detailed model
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808029302784
+    m_Localized: Fertilization Simulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9827176300544
+    m_Localized: Pathological simulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10684244574208
+    m_Localized: Show All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10743774330880
+    m_Localized: Show only this
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13120183091200
+    m_Localized: Select gender
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

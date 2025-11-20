@@ -9,5 +9,7 @@ EditorBuildSettings:
     path: Assets/_Main/Phan2/Bai1/Scenes/Main.unity
     guid: c14aba6aed4462040823bb5694e35532
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 4fc658d92f438c14093246604491b3fa, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: dbcc7fcc6d13cbe42b36eaaf2ac3ce5e, type: 2}
   m_UseUCBPForAssetBundles: 0

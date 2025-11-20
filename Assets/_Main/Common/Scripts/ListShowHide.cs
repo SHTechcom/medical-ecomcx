@@ -2,11 +2,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization;   // ✅ thêm
 
 public class ListShowHide : MonoBehaviour
 {
     [SerializeField] private List<GameObject> obj;       // list part 3D của bạn
     [SerializeField] private Button showHideAllBtn;      // nút toggle ẩn/hiện tất cả
+
+    // ✅ Tên bảng và key để dễ chỉnh trong Inspector
+    [Header("Localization")]
+    [SerializeField] private string tableName = "Table";
+    [SerializeField] private string showAllKey = "ShowAllBtn";      // "Hiển thị tất cả"
+    [SerializeField] private string showOnlyThisKey = "ShowOnlyThis"; // "Chỉ hiển thị phần này"
 
     public static ListShowHide Instance { get; private set; }
 
@@ -44,6 +51,7 @@ public class ListShowHide : MonoBehaviour
     public void Show()
     {
         showHideAllBtn.gameObject.SetActive(true);
+        UpdateButtonLabel();
     }
 
     public void Hide()
@@ -88,16 +96,24 @@ public class ListShowHide : MonoBehaviour
             foreach (var part in obj)
                 if (part != null) part.SetActive(true);
         }
+
+        UpdateButtonLabel();
     }
 
-    // ⭐ Đổi text nút theo trạng thái
+    // ⭐ Đổi text nút theo trạng thái (dùng Localization)
     private void UpdateButtonLabel()
     {
         if (btnText == null) return;
 
-        if (isShowingAll)
-            btnText.text = "Chỉ hiển thị phần này"; // next action = hide others
-        else
-            btnText.text = "Hiển thị tất cả";       // next action = show all
+        string keyToUse = isShowingAll ? showOnlyThisKey : showAllKey;
+
+        var localized = new LocalizedString(tableName, keyToUse);
+        var handle = localized.GetLocalizedStringAsync();
+        handle.Completed += op =>
+        {
+            // tránh null nếu object đã bị destroy
+            if (btnText != null)
+                btnText.text = op.Result;
+        };
     }
 }

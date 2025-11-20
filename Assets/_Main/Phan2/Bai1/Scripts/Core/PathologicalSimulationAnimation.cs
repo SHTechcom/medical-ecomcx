@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Bai11
 {
-
     public class PathologicalSimulationAnimation : MonoBehaviour
     {
         [SerializeField] private GameObject nieudao;
@@ -23,35 +22,44 @@ namespace Bai11
         private Outline outlineLeft;
 
         private bool isPlaying;
-
         public bool Isplaying => isPlaying;
 
         public void Play()
         {
-            DialogManager.Instance.Get().Set("...", "U xơ tuyến tiền liệt (phì đại) gây chèn ép niệu đạo, dẫn đến bí đái.");
-            DialogManager.Instance.Get().OnClicked(() =>
+            // Lấy dialog 1 lần cho gọn
+            var dialog = DialogManager.Instance.Get();
+
+            // name = "..." (không localize)
+            // contentKey = KEY trong StringTable (có localize)
+            // -> NHỚ tạo key "Pathology_Prostate_Blocked" trong bảng Table
+            dialog.Set("...", "Pathology_Prostate_Blocked");
+
+            dialog.OnClicked(() =>
             {
-                DialogManager.Instance.Get().Hide();
+                dialog.Hide();
             });
-            DialogManager.Instance.Get().Show();
+            dialog.Show();
+
             isPlaying = true;
-            tweenAnimR = tuyentienlietPivotRight.transform.DOScale(scalePivotMax, 1)
-                .SetLoops(-1, LoopType.Yoyo);
-            tweenAnimL = tuyentienlietPivotLeft.transform.DOScale(scalePivotMax, 1)
+
+            // Animation tuyến tiền liệt phồng lên – thu vào
+            tweenAnimR = tuyentienlietPivotRight.transform
+                .DOScale(scalePivotMax, 1f)
                 .SetLoops(-1, LoopType.Yoyo);
 
-            if (!nieudao.TryGetComponent<Outline>(out outlineNieudao))
-            {
+            tweenAnimL = tuyentienlietPivotLeft.transform
+                .DOScale(scalePivotMax, 1f)
+                .SetLoops(-1, LoopType.Yoyo);
+
+            // Outline
+            if (!nieudao.TryGetComponent(out outlineNieudao))
                 outlineNieudao = nieudao.AddComponent<Outline>();
-            }
-            if (!tuyentienlietRight.TryGetComponent<Outline>(out outlineRight))
-            {
+
+            if (!tuyentienlietRight.TryGetComponent(out outlineRight))
                 outlineRight = tuyentienlietRight.AddComponent<Outline>();
-            }
-            if (!tuyentienlietLeft.TryGetComponent<Outline>(out outlineLeft))
-            {
+
+            if (!tuyentienlietLeft.TryGetComponent(out outlineLeft))
                 outlineLeft = tuyentienlietLeft.AddComponent<Outline>();
-            }
 
             outlineNieudao.OutlineColor = Color.red;
             outlineRight.OutlineColor = Color.red;
@@ -66,27 +74,26 @@ namespace Bai11
         {
             DialogManager.Instance.Get().Hide();
             isPlaying = false;
+
+            // Dừng tween + reset scale
             tweenAnimR?.Kill();
             tweenAnimL?.Kill();
             tuyentienlietPivotRight.transform.localScale = Vector3.one;
             tuyentienlietPivotLeft.transform.localScale = Vector3.one;
 
-            if (!nieudao.TryGetComponent<Outline>(out outlineNieudao))
-            {
+            // Tắt outline
+            if (!nieudao.TryGetComponent(out outlineNieudao))
                 outlineNieudao = nieudao.AddComponent<Outline>();
-            }
-            if (!tuyentienlietRight.TryGetComponent<Outline>(out outlineRight))
-            {
+
+            if (!tuyentienlietRight.TryGetComponent(out outlineRight))
                 outlineRight = tuyentienlietRight.AddComponent<Outline>();
-            }
-            if (!tuyentienlietLeft.TryGetComponent<Outline>(out outlineLeft))
-            {
+
+            if (!tuyentienlietLeft.TryGetComponent(out outlineLeft))
                 outlineLeft = tuyentienlietLeft.AddComponent<Outline>();
-            }
+
             outlineNieudao.enabled = false;
             outlineRight.enabled = false;
             outlineLeft.enabled = false;
         }
     }
-
 }

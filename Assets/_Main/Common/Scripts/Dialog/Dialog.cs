@@ -1,36 +1,40 @@
-using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization;
 
 public class Dialog : MonoBehaviour
 {
     public TMP_Text nameText;
     public TMP_Text contentText;
-    public Button btn;
 
-    public void OnClicked(Action action)
-    {
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(() =>
-        {
-            action?.Invoke();
-        });
-    }
+    [SerializeField] string tableName = "Table";   // tên StringTable bạn đang dùng
 
-    public void Set(string name, string content)
+    /// <summary>
+    /// name: text bình thường (KHÔNG localize)
+    /// contentKey: KEY trong StringTable (CÓ localize)
+    /// </summary>
+    public void Set(string name, string contentKey)
     {
+        // Name: gán thẳng, không dịch
         nameText.text = name;
-        contentText.text = content;
+
+        // Content: dùng Localization
+        var localizedContent = new LocalizedString(tableName, contentKey);
+        localizedContent.StringChanged += value =>
+        {
+            contentText.text = value;
+        };
     }
 
-    public void Show()
-    {
-        gameObject.SetActive(true);
-    }
+    public void Show() => gameObject.SetActive(true);
+    public void Hide() => gameObject.SetActive(false);
 
-    public void Hide()
+
+    public void OnClicked(System.Action callback)
     {
-        gameObject.SetActive(false);
+        // Tùy UI của bạn – ví dụ nếu có button close:
+        // closeButton.onClick.RemoveAllListeners();
+        // closeButton.onClick.AddListener(() => callback?.Invoke());
+        callback?.Invoke();
     }
 }

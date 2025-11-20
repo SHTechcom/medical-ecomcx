@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Table_vi-VN
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: vi-VN
+  m_SharedData: {fileID: 11400000, guid: 1d6c439e2028232449b800950092303f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 461266108416
+    m_Localized: "B\xECu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 832470401024
+    m_Localized: "D\u01B0\u01A1ng v\u1EADt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 918906617856
+    m_Localized: "M\xE0o tinh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 974309179392
+    m_Localized: "\u1ED0ng d\u1EABn tinh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1071793192960
+    m_Localized: "Tinh ho\xE0n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1126658883584
+    m_Localized: "T\xFAi tinh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1182128553984
+    m_Localized: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1233571692544
+    m_Localized: "\u1ED0ng ti\u1EBFt s\u1EEFa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1313250885632
+    m_Localized: "Ng\u1EF1c"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1357488209920
+    m_Localized: "N\xFAm v\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1394968510464
+    m_Localized: "Bu\u1ED3ng tr\u1EE9ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1455945302016
+    m_Localized: "V\xF2i tr\u1EE9ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1492712570880
+    m_Localized: "T\u1EED cung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1652666548224
+    m_Localized: "C\u1ED5 t\u1EED cung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1770320969728
+    m_Localized: "Ngo\xE0i \xE2m \u0111\u1EA1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3115958550528
+    m_Localized: "M\xF4 ph\u1ECFng \u0111\u01B0\u1EDDng d\u1EABn tinh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4078878474240
+    m_Localized: "Quay l\u1EA1i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8917314322432
+    m_Localized: "M\xF4 ph\u1ECFng b\u1EC7nh l\xFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9664168869888
+    m_Localized: "Hi\u1EC3n th\u1ECB m\xF4 h\xECnh tuy\u1EBFn v\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9666970664960
+    m_Localized: "Hi\u1EC3n th\u1ECB m\xF4 h\xECnh t\u1ED5ng quan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9667616587776
+    m_Localized: "Hi\u1EC3n th\u1ECB m\xF4 h\xECnh chi ti\u1EBFt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9808029302784
+    m_Localized: "M\xF4 ph\u1ECFng Th\u1EE5 Tinh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9827176300544
+    m_Localized: "M\xF4 ph\u1ECFng b\u1EC7nh l\xFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10684244574208
+    m_Localized: "Hi\u1EC3n th\u1ECB t\u1EA5t c\u1EA3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10743774330880
+    m_Localized: "Ch\u1EC9 hi\u1EC3n th\u1ECB ph\u1EA7n n\xE0y"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13120183091200
+    m_Localized: "Ch\u1ECDn gi\u1EDBi t\xEDnh"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
