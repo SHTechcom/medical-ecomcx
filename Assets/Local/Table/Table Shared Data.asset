@@ -15,10 +15,6 @@ MonoBehaviour:
   m_TableCollectionName: Table
   m_TableCollectionNameGuidString: 1d6c439e2028232449b800950092303f
   m_Entries:
-  - m_Id: 461266108416
-    m_Key: "B\xECu"
-    m_Metadata:
-      m_Items: []
   - m_Id: 1394968510464
     m_Key: "Bu\u1ED3ng tr\u1EE9ng"
     m_Metadata:
@@ -29,10 +25,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1652666548224
     m_Key: "C\u1ED5 t\u1EED cung"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 832470401024
-    m_Key: "D\u01B0\u01A1ng v\u1EADt\t\t"
     m_Metadata:
       m_Items: []
   - m_Id: 9667616587776
@@ -84,14 +76,8 @@ MonoBehaviour:
     m_Key: "N\xFAm v\xFA"
     m_Metadata:
       m_Items: []
-  - m_Id: 974309179392
-    m_Key: "\u1ED0ng d\u1EABn tinh"
-    m_Metadata:
-      m_Items: []
   - m_Id: 1049440586186752
-    m_Key: "\u1ED0ng d\u1EABn tinh : D\u1EABn tinh tr\xF9ng t\u1EEB m\xE0o tinh \u0111i
-      v\xE0o \u1ED5 b\u1EE5ng, k\u1EBFt h\u1EE3p v\u1EDBi \u1ED1ng ti\u1EBFt c\u1EE7a
-      t\xFAi tinh \u0111\u1EC3 \u0111\u1ED5 v\xE0o ni\u1EC7u \u0111\u1EA1o."
+    m_Key: "\u1ED0ng d\u1EABn tinh"
     m_Metadata:
       m_Items: []
   - m_Id: 1233571692544
@@ -118,33 +104,20 @@ MonoBehaviour:
     m_Key: "T\u1EED cung"
     m_Metadata:
       m_Items: []
-  - m_Id: 1126658883584
-    m_Key: "T\xFAi tinh"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1182128553984
-    m_Key: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t"
-    m_Metadata:
-      m_Items: []
   - m_Id: 1455945302016
     m_Key: "V\xF2i tr\u1EE9ng"
     m_Metadata:
       m_Items: []
   - m_Id: 1049793264238592
-    m_Key: "D\u01B0\u01A1ng v\u1EADt : C\u1EA5u t\u1EA1o b\u1EDFi c\xE1c t\u1EA1ng
-      c\u01B0\u01A1ng: 2 v\u1EADt hang (n\u1EB1m tr\xEAn) v\xE0 1 v\u1EADt x\u1ED1p
-      (n\u1EB1m d\u01B0\u1EDBi, ch\u1EE9a ni\u1EC7u \u0111\u1EA1o)."
+    m_Key: "D\u01B0\u01A1ng v\u1EADt"
     m_Metadata:
       m_Items: []
   - m_Id: 1049887090819072
-    m_Key: "T\xFAi tinh : N\u1EB1m sau b\xE0ng quang, tr\u01B0\u1EDBc tr\u1EF1c tr\xE0ng.
-      Ti\u1EBFt ra th\xE0nh ph\u1EA7n dinh d\u01B0\u1EE1ng c\u1EE7a tinh d\u1ECBch."
+    m_Key: "T\xFAi tinh"
     m_Metadata:
       m_Items: []
   - m_Id: 1049904413294592
-    m_Key: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t : N\u1EB1m d\u01B0\u1EDBi b\xE0ng quang,
-      bao quanh ni\u1EC7u \u0111\u1EA1o. Ti\u1EBFt d\u1ECBch ki\u1EC1m \u0111\u1EC3
-      trung h\xF2a axit \xE2m \u0111\u1EA1o."
+    m_Key: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t"
     m_Metadata:
       m_Items: []
   - m_Id: 1050388020740096

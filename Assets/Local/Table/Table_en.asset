@@ -18,32 +18,12 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 461266108416
-    m_Localized: Scrotum
-    m_Metadata:
-      m_Items: []
-  - m_Id: 832470401024
-    m_Localized: Penis
-    m_Metadata:
-      m_Items: []
   - m_Id: 918906617856
     m_Localized: Epididymis
     m_Metadata:
       m_Items: []
-  - m_Id: 974309179392
-    m_Localized: Vas deferens
-    m_Metadata:
-      m_Items: []
   - m_Id: 1071793192960
     m_Localized: Testicles
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1126658883584
-    m_Localized: Seminal vesicles
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1182128553984
-    m_Localized: Prostate
     m_Metadata:
       m_Items: []
   - m_Id: 1233571692544

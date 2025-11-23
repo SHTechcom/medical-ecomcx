@@ -27,18 +27,18 @@ namespace Bai11
         public void Play()
         {
             // Lấy dialog 1 lần cho gọn
-            var dialog = DialogManager.Instance.Get();
+            //var dialog = DialogManager.Instance.Get();
 
-            // name = "..." (không localize)
-            // contentKey = KEY trong StringTable (có localize)
-            // -> NHỚ tạo key "Pathology_Prostate_Blocked" trong bảng Table
-            dialog.Set("...", "Pathology_Prostate_Blocked");
+            //// name = "..." (không localize)
+            //// contentKey = KEY trong StringTable (có localize)
+            //// -> NHỚ tạo key "Pathology_Prostate_Blocked" trong bảng Table
+            //dialog.Set("...", "Pathology_Prostate_Blocked");
 
-            dialog.OnClicked(() =>
-            {
-                dialog.Hide();
-            });
-            dialog.Show();
+            //dialog.OnClicked(() =>
+            //{
+            //    dialog.Hide();
+            //});
+            //dialog.Show();
 
             isPlaying = true;
 
@@ -72,7 +72,7 @@ namespace Bai11
 
         public void Stop()
         {
-            DialogManager.Instance.Get().Hide();
+            //DialogManager.Instance.Get().Hide();
             isPlaying = false;
 
             // Dừng tween + reset scale

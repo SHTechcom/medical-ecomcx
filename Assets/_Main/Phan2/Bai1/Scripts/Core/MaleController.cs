@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Bai11
@@ -41,6 +41,7 @@ namespace Bai11
 
         private void PlayPathologicalSimulationAnim()
         {
+            UI.SetActive(true);                      // ✅ QUAN TRỌNG
             pathologicalSimulationAnimation.Play();
             ShowUIBack(StopPathologicalSimulationAnim);
         }

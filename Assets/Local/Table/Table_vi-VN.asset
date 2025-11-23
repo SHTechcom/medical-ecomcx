@@ -18,32 +18,12 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 461266108416
-    m_Localized: "B\xECu"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 832470401024
-    m_Localized: "D\u01B0\u01A1ng v\u1EADt"
-    m_Metadata:
-      m_Items: []
   - m_Id: 918906617856
     m_Localized: "M\xE0o tinh"
     m_Metadata:
       m_Items: []
-  - m_Id: 974309179392
-    m_Localized: "\u1ED0ng d\u1EABn tinh"
-    m_Metadata:
-      m_Items: []
   - m_Id: 1071793192960
     m_Localized: "Tinh ho\xE0n"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1126658883584
-    m_Localized: "T\xFAi tinh"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1182128553984
-    m_Localized: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t"
     m_Metadata:
       m_Items: []
   - m_Id: 1233571692544
