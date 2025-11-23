@@ -7266,7 +7266,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "D\u01B0\u01A1ng v\u1EADt"
+      value: "D\u01B0\u01A1ng v\u1EADt : C\u1EA5u t\u1EA1o b\u1EDFi c\xE1c t\u1EA1ng
+        c\u01B0\u01A1ng: 2 v\u1EADt hang (n\u1EB1m tr\xEAn) v\xE0 1 v\u1EADt x\u1ED1p
+        (n\u1EB1m d\u01B0\u1EDBi, ch\u1EE9a ni\u1EC7u \u0111\u1EA1o)."
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8127,7 +8129,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "B\xECu"
+      value: "B\xECu : T\xFAi da s\u1EABm m\xE0u ch\u1EE9a tinh ho\xE0n, c\xF3 kh\u1EA3
+        n\u0103ng co gi\xE3n \u0111\u1EC3 \u0111i\u1EC1u nhi\u1EC7t."
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8400,7 +8403,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "T\xFAi tinh"
+      value: "T\xFAi tinh : N\u1EB1m sau b\xE0ng quang, tr\u01B0\u1EDBc tr\u1EF1c
+        tr\xE0ng. Ti\u1EBFt ra th\xE0nh ph\u1EA7n dinh d\u01B0\u1EE1ng c\u1EE7a tinh
+        d\u1ECBch."
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8677,7 +8682,7 @@ PrefabInstance:
       objectReference: {fileID: 7563436312982466445}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "M\xE0o tinh"
+      value: "M\xE0o tinh "
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8954,7 +8959,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t"
+      value: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t : N\u1EB1m d\u01B0\u1EDBi b\xE0ng quang,
+        bao quanh ni\u1EC7u \u0111\u1EA1o. Ti\u1EBFt d\u1ECBch ki\u1EC1m \u0111\u1EC3
+        trung h\xF2a axit \xE2m \u0111\u1EA1o."
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -9975,7 +9982,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "\u1ED0ng d\u1EABn tinh"
+      value: "\u1ED0ng d\u1EABn tinh : D\u1EABn tinh tr\xF9ng t\u1EEB m\xE0o tinh
+        \u0111i v\xE0o \u1ED5 b\u1EE5ng, k\u1EBFt h\u1EE3p v\u1EDBi \u1ED1ng ti\u1EBFt
+        c\u1EE7a t\xFAi tinh \u0111\u1EC3 \u0111\u1ED5 v\xE0o ni\u1EC7u \u0111\u1EA1o."
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart

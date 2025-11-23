@@ -122,6 +122,44 @@ MonoBehaviour:
     m_Localized: Select gender
     m_Metadata:
       m_Items: []
+  - m_Id: 1049440586186752
+    m_Localized: 'Vas deferens: Conducts sperm from the epididymis into the abdominal
+      cavity, combines with the secretory duct of the seminal vesicle to empty into
+      the urethra.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049660652929024
+    m_Localized: 'Scrotum: Dark skin sac containing the testicles, which is elastic
+      for thermoregulation.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049793264238592
+    m_Localized: 'Penis: Composed of erectile organs: 2 corpora cavernosa (located
+      above) and 1 spongy body (located below, containing the urethra).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049887090819072
+    m_Localized: 'Seminal vesicles: Located behind the bladder, in front of the rectum.
+      Secrete the nutritional components of semen.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049904413294592
+    m_Localized: 'Prostate: Located below the bladder, surrounding the urethra. Secretes
+      alkaline fluid to neutralize vaginal acid.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050388020740096
+    m_Localized: 'Fallopian tube: Structure: Ovarian tube from the ovary to the uterus.
+      Segments: 4 segments (Funnel, Ampulla, Isthmus, Wall). Note: Fertilization
+      usually occurs in the outer 1/3 (ampulla).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050388754743296
+    m_Localized: 'Ovaries: Location: Located against the side wall of the pelvis
+      (in the ovarian fossa). Function: Creates ova (eggs) and secretes female hormones
+      (Estrogen, Progesterone). Shape: Flat bean-shaped.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

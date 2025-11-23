@@ -122,6 +122,49 @@ MonoBehaviour:
     m_Localized: "Ch\u1ECDn gi\u1EDBi t\xEDnh"
     m_Metadata:
       m_Items: []
+  - m_Id: 1049440586186752
+    m_Localized: "\u1ED0ng d\u1EABn tinh : D\u1EABn tinh tr\xF9ng t\u1EEB m\xE0o
+      tinh \u0111i v\xE0o \u1ED5 b\u1EE5ng, k\u1EBFt h\u1EE3p v\u1EDBi \u1ED1ng ti\u1EBFt
+      c\u1EE7a t\xFAi tinh \u0111\u1EC3 \u0111\u1ED5 v\xE0o ni\u1EC7u \u0111\u1EA1o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049660652929024
+    m_Localized: "B\xECu : T\xFAi da s\u1EABm m\xE0u ch\u1EE9a tinh ho\xE0n, c\xF3
+      kh\u1EA3 n\u0103ng co gi\xE3n \u0111\u1EC3 \u0111i\u1EC1u nhi\u1EC7t."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049793264238592
+    m_Localized: "D\u01B0\u01A1ng v\u1EADt : C\u1EA5u t\u1EA1o b\u1EDFi c\xE1c t\u1EA1ng
+      c\u01B0\u01A1ng: 2 v\u1EADt hang (n\u1EB1m tr\xEAn) v\xE0 1 v\u1EADt x\u1ED1p
+      (n\u1EB1m d\u01B0\u1EDBi, ch\u1EE9a ni\u1EC7u \u0111\u1EA1o)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049887090819072
+    m_Localized: "T\xFAi tinh : N\u1EB1m sau b\xE0ng quang, tr\u01B0\u1EDBc tr\u1EF1c
+      tr\xE0ng. Ti\u1EBFt ra th\xE0nh ph\u1EA7n dinh d\u01B0\u1EE1ng c\u1EE7a tinh
+      d\u1ECBch."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049904413294592
+    m_Localized: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t : N\u1EB1m d\u01B0\u1EDBi b\xE0ng
+      quang, bao quanh ni\u1EC7u \u0111\u1EA1o. Ti\u1EBFt d\u1ECBch ki\u1EC1m \u0111\u1EC3
+      trung h\xF2a axit \xE2m \u0111\u1EA1o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050388020740096
+    m_Localized: "V\xF2i tr\u1EE9ng : C\u1EA5u t\u1EA1o: \u1ED0ng d\u1EABn no\xE3n
+      t\u1EEB bu\u1ED3ng tr\u1EE9ng t\u1EDBi t\u1EED cung.  Ph\xE2n \u0111o\u1EA1n:
+      4 \u0111o\u1EA1n (Ph\u1EC5u, B\xF3ng, Eo, Th\xE0nh).  L\u01B0u \xFD: Th\u1EE5
+      tinh th\u01B0\u1EDDng x\u1EA3y ra \u1EDF 1/3 ngo\xE0i (\u0111o\u1EA1n b\xF3ng)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050388754743296
+    m_Localized: "Bu\u1ED3ng tr\u1EE9ng : V\u1ECB tr\xED: N\u1EB1m \xE1p v\xE0o th\xE0nh
+      b\xEAn ch\u1EADu h\xF4ng (trong h\u1ED1 bu\u1ED3ng tr\u1EE9ng).  Ch\u1EE9c
+      n\u0103ng: T\u1EA1o no\xE3n (tr\u1EE9ng) v\xE0 ti\u1EBFt hormone n\u1EEF (Estrogen,
+      Progesterone).  H\xECnh th\u1EC3: H\xECnh h\u1EA1t \u0111\u1EADu d\u1EB9t."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
