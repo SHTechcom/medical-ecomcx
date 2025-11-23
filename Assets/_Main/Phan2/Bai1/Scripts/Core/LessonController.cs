@@ -50,7 +50,7 @@ namespace Bai11
                 UISelectGender.Hide();
                 UIMain.Show();
             });
-            UISelectGender.Show();
+            //UISelectGender.Show();
             UISelectGender.OnClickSelectFemale(() =>
             {
                 SelectGender(Gender.Female);

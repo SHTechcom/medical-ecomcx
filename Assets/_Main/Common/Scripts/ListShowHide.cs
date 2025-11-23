@@ -2,25 +2,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Localization;   // ✅ thêm
 
 public class ListShowHide : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> obj;       // list part 3D của bạn
-    [SerializeField] private Button showHideAllBtn;      // nút toggle ẩn/hiện tất cả
+    [SerializeField] private List<GameObject> obj;
+    [SerializeField] private Button showHideAllBtn;
 
-    // ✅ Tên bảng và key để dễ chỉnh trong Inspector
-    [Header("Localization")]
-    [SerializeField] private string tableName = "Table";
-    [SerializeField] private string showAllKey = "ShowAllBtn";      // "Hiển thị tất cả"
-    [SerializeField] private string showOnlyThisKey = "ShowOnlyThis"; // "Chỉ hiển thị phần này"
+    [Header("Sprites")]
+    [SerializeField] private Sprite spriteShowAll;        // img1
+    [SerializeField] private Sprite spriteShowOnlyThis;   // img2
 
     public static ListShowHide Instance { get; private set; }
 
-    private InfoButton currentSelected;   // ⭐ Lưu InfoButton được bấm gần nhất
-    private bool isShowingAll = true;     // ⭐ Trạng thái toggle
+    private InfoButton currentSelected;
+    private bool isShowingAll = true;
 
-    private TMP_Text btnText;             // ⭐ lấy text trên nút
+    private Image btnImage;  // ⭐ ảnh của button
 
     private void Awake()
     {
@@ -28,30 +25,27 @@ public class ListShowHide : MonoBehaviour
 
         if (showHideAllBtn != null)
         {
-            btnText = showHideAllBtn.GetComponentInChildren<TMP_Text>();
+            btnImage = showHideAllBtn.GetComponent<Image>();   // ⭐ lấy ảnh Button
             showHideAllBtn.onClick.AddListener(OnClickShowHideAll);
 
-            showHideAllBtn.gameObject.SetActive(false); // ban đầu ẩn đến khi chọn InfoButton
+            showHideAllBtn.gameObject.SetActive(false);
         }
     }
 
-    // ⭐ InfoButton gọi hàm này
     public void OnInfoButtonSelected(InfoButton info)
     {
         currentSelected = info;
 
-        // Lần đầu bấm InfoButton → hiện nút
         if (!showHideAllBtn.gameObject.activeSelf)
             showHideAllBtn.gameObject.SetActive(true);
 
-        // Cập nhật text khi vừa chọn InfoButton (không toggle)
-        UpdateButtonLabel();
+        UpdateButtonSprite();
     }
 
     public void Show()
     {
         showHideAllBtn.gameObject.SetActive(true);
-        UpdateButtonLabel();
+        UpdateButtonSprite();
     }
 
     public void Hide()
@@ -59,7 +53,6 @@ public class ListShowHide : MonoBehaviour
         showHideAllBtn.gameObject.SetActive(false);
     }
 
-    // ⭐ Hàm được gọi khi bấm showHideAllBtn
     public void OnClickShowHideAll()
     {
         if (currentSelected == null || currentSelected.targetPart == null)
@@ -68,52 +61,37 @@ public class ListShowHide : MonoBehaviour
             return;
         }
 
-        isShowingAll = !isShowingAll;  // ⭐ Toggle state
+        isShowingAll = !isShowingAll;
 
         if (isShowingAll)
         {
-            // ⭐ HIỆN TẤT CẢ
             foreach (var part in obj)
                 if (part != null) part.SetActive(true);
         }
         else
         {
-            // ⭐ ẨN HẾT TRỪ thằng được chọn
             foreach (var part in obj)
                 if (part != null) part.SetActive(part == currentSelected.targetPart);
         }
 
-        UpdateButtonLabel();
+        UpdateButtonSprite();
     }
 
     public void ShowAll()
     {
-        isShowingAll = true;  // ⭐ Toggle state
+        isShowingAll = true;
 
-        if (isShowingAll)
-        {
-            // ⭐ HIỆN TẤT CẢ
-            foreach (var part in obj)
-                if (part != null) part.SetActive(true);
-        }
+        foreach (var part in obj)
+            if (part != null) part.SetActive(true);
 
-        UpdateButtonLabel();
+        UpdateButtonSprite();
     }
 
-    // ⭐ Đổi text nút theo trạng thái (dùng Localization)
-    private void UpdateButtonLabel()
+    // ⭐ Thay sprite theo trạng thái
+    private void UpdateButtonSprite()
     {
-        if (btnText == null) return;
+        if (btnImage == null) return;
 
-        string keyToUse = isShowingAll ? showOnlyThisKey : showAllKey;
-
-        var localized = new LocalizedString(tableName, keyToUse);
-        var handle = localized.GetLocalizedStringAsync();
-        handle.Completed += op =>
-        {
-            // tránh null nếu object đã bị destroy
-            if (btnText != null)
-                btnText.text = op.Result;
-        };
+        btnImage.sprite = isShowingAll ? spriteShowOnlyThis : spriteShowAll;
     }
 }
