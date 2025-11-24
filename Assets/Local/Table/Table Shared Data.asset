@@ -341,6 +341,10 @@ MonoBehaviour:
     m_Key: Tiep tuc
     m_Metadata:
       m_Items: []
+  - m_Id: 1489739657658368
+    m_Key: voice
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
