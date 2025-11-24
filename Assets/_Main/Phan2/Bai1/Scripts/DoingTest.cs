@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Collections;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 public class DoingTest : MonoBehaviour
 {
     [Header("Tên StringTable cho câu hỏi")]
@@ -26,9 +25,6 @@ public class DoingTest : MonoBehaviour
     [Header("ToggleGroup cho 4 đáp án (0–3)")]
     public ToggleGroup answerGroup;  // tạo 1 ToggleGroup, kéo vào đây
 
-    [Header("Icon kết quả đúng/sai")]
-    public Sprite iconTrue;   // sprite tích xanh
-    public Sprite iconWrong;  // sprite tích đỏ
 
     [Header("Nút & Text khác")]
     public Button checkButton;    // dùng như nút NEXT
@@ -103,7 +99,29 @@ public class DoingTest : MonoBehaviour
             }
         }
     }
+    private void OnEnable()
+    {
+        for (int i = 0; i < answerToggles.Length; i++)
+        {
+            Toggle toggle = answerToggles[i];
 
+            // Reset Background
+            Image imgBG = toggle.transform.Find("Background").GetComponent<Image>();
+            if (imgBG != null)
+            {
+                imgBG.color = new Color(255, 255, 255);
+            }
+
+            // Reset màu LỚP CHÍNH của Toggle (cái bạn đang quên!)
+            Image imgMain = toggle.GetComponent<Image>();
+            if (imgMain != null)
+            {
+                imgBG.color = new Color(255, 255, 255);
+            }
+
+            toggle.isOn = false;
+        }
+    }
     // ====== Button chọn giới tính ======
     public void SetGender(bool male)
     {
@@ -190,7 +208,7 @@ public class DoingTest : MonoBehaviour
                     {
                         answerTexts[index].text = value;   // chỉ đổi text
                     };
-                }    
+                }
                 else
                     answerTexts[i].text = "";
             }
@@ -356,7 +374,6 @@ public class DoingTest : MonoBehaviour
                     text.text = $"{i + 1}. {value}";   // Ví dụ EN answer / VI answer
                 };
             }
-            //text.color = corr ? Color.green : Color.red;
 
             // Đổi sprite của toggle theo đúng/sai
             Image img = toggle.transform.Find("Background").GetComponent<Image>();
@@ -364,16 +381,14 @@ public class DoingTest : MonoBehaviour
             {
                 if (corr)
                 {
-                    if (iconTrue != null)
-                        img.sprite = iconTrue;
                     img.color = new Color(0.2f, 1f, 0.2f);   // xanh
                 }
                 else
                 {
-                    if (iconWrong != null)
-                        img.sprite = iconWrong;
                     img.color = new Color(1f, 0.3f, 0.3f);   // đỏ
                 }
+                Debug.Log(img.color);
+
             }
 
         }
@@ -391,19 +406,67 @@ public class DoingTest : MonoBehaviour
         {
             finalScoreText.gameObject.SetActive(true);
             finalScoreText.text =
-                $"{correctCount}/" +$"{total}";
+                $"{correctCount}/" + $"{total}";
         }
+    }
+    public void ABC()
+    {
+        Debug.Log("1ABC");
+
+        for (int i = 0; i < answerToggles.Length; i++)
+        {
+            Toggle toggle = answerToggles[i];
+
+            // Reset Background
+            Image imgBG = toggle.transform.Find("Background").GetComponent<Image>();
+            if (imgBG != null)
+            {
+                imgBG.color = new Color(255, 255, 255);
+            }
+
+            // Reset màu LỚP CHÍNH của Toggle (cái bạn đang quên!)
+            Image imgMain = toggle.GetComponent<Image>();
+            if (imgMain != null)
+            {
+                imgBG.color = new Color(255, 255, 255);
+            }
+
+            toggle.isOn = false;
+        }
+        Debug.Log("2ABC");
     }
 
 
     // Reset khi tắt panel
     private void OnDisable()
     {
+
         currentQuestions = null;
         currentIndex = 0;
         correctCount = 0;
         chosenIndexes = null;
         isCorrectArray = null;
+        for (int i = 0; i < answerToggles.Length; i++)
+        {
+            Toggle toggle = answerToggles[i];
+
+            // Reset Background
+            Image imgBG = toggle.transform.Find("Background").GetComponent<Image>();
+            if (imgBG != null)
+            {
+                imgBG.color = new Color(255, 255, 255);
+            }
+
+            // Reset màu LỚP CHÍNH của Toggle (cái bạn đang quên!)
+            Image imgMain = toggle.GetComponent<Image>();
+            if (imgMain != null)
+            {
+                imgBG.color = new Color(255, 255, 255);
+            }
+
+            toggle.isOn = false;
+        }
+
 
         if (questionText != null)
             questionText.text = "";

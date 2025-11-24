@@ -367,6 +367,10 @@ MonoBehaviour:
     m_Localized: "T\u1ED5ng K\u1EBFt"
     m_Metadata:
       m_Items: []
+  - m_Id: 1482807408476160
+    m_Localized: "Ti\u1EBFp t\u1EE5c"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
