@@ -6819,9 +6819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "D\u01B0\u01A1ng v\u1EADt : C\u1EA5u t\u1EA1o b\u1EDFi c\xE1c t\u1EA1ng
-        c\u01B0\u01A1ng: 2 v\u1EADt hang (n\u1EB1m tr\xEAn) v\xE0 1 v\u1EADt x\u1ED1p
-        (n\u1EB1m d\u01B0\u1EDBi, ch\u1EE9a ni\u1EC7u \u0111\u1EA1o)."
+      value: Duong vat
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -7645,8 +7643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "B\xECu : T\xFAi da s\u1EABm m\xE0u ch\u1EE9a tinh ho\xE0n, c\xF3 kh\u1EA3
-        n\u0103ng co gi\xE3n \u0111\u1EC3 \u0111i\u1EC1u nhi\u1EC7t."
+      value: Biu
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -7883,9 +7880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "T\xFAi tinh : N\u1EB1m sau b\xE0ng quang, tr\u01B0\u1EDBc tr\u1EF1c
-        tr\xE0ng. Ti\u1EBFt ra th\xE0nh ph\u1EA7n dinh d\u01B0\u1EE1ng c\u1EE7a tinh
-        d\u1ECBch."
+      value: Tui tinh
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8126,7 +8121,7 @@ PrefabInstance:
       objectReference: {fileID: 7563436312982466445}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "M\xE0o tinh "
+      value: Mao tinh
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8367,7 +8362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "Tuy\u1EBFn ti\u1EC1n li\u1EC7t"
+      value: Tuyen tien liet
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -8824,6 +8819,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8258624613294635274, guid: e2c466cffd5042b4bb48aa5ce545703c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9055607183122372841}
+    - targetCorrespondingSourceObject: {fileID: 6735152679251527862, guid: e2c466cffd5042b4bb48aa5ce545703c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6109009041655266433}
   m_SourcePrefab: {fileID: 100100000, guid: e2c466cffd5042b4bb48aa5ce545703c, type: 3}
 --- !u!114 &546127251249128338 stripped
 MonoBehaviour:
@@ -8836,6 +8834,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1594924441722449470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6735152679251527862, guid: e2c466cffd5042b4bb48aa5ce545703c, type: 3}
+  m_PrefabInstance: {fileID: 5429756725139515016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6109009041655266433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594924441722449470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1d6c439e2028232449b800950092303f
+    m_TableEntryReference:
+      m_KeyId: 8917314322432
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4159471092688464294}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!224 &2775303207736252048 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7915504506159607832, guid: e2c466cffd5042b4bb48aa5ce545703c, type: 3}
@@ -8847,6 +8890,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 5429756725139515016}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5340859410632029692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4159471092688464294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8278519995127369518, guid: e2c466cffd5042b4bb48aa5ce545703c, type: 3}
+  m_PrefabInstance: {fileID: 5429756725139515016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594924441722449470}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -9059,7 +9113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "Tinh ho\xE0n"
+      value: Tinh hoan
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart
@@ -9314,9 +9368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "\u1ED0ng d\u1EABn tinh : D\u1EABn tinh tr\xF9ng t\u1EEB m\xE0o tinh
-        \u0111i v\xE0o \u1ED5 b\u1EE5ng, k\u1EBFt h\u1EE3p v\u1EDBi \u1ED1ng ti\u1EBFt
-        c\u1EE7a t\xFAi tinh \u0111\u1EC3 \u0111\u1ED5 v\xE0o ni\u1EC7u \u0111\u1EA1o."
+      value: Ong dan tinh
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart

@@ -9648,7 +9648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: content
-      value: "\u1ED0ng ti\u1EBFt s\u1EEFa : "
+      value: "\u1ED0ng ti\u1EBFt s\u1EEFa"
       objectReference: {fileID: 0}
     - target: {fileID: 7471874995987849039, guid: 10a80fdeb779556498e969b5614b4044, type: 3}
       propertyPath: targetPart

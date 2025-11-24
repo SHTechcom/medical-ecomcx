@@ -140,6 +140,221 @@ MonoBehaviour:
       (Estrogen, Progesterone). Shape: Flat bean-shaped.'
     m_Metadata:
       m_Items: []
+  - m_Id: 1467651781705728
+    m_Localized: Sentence 1 :In the anatomy of the male reproductive system, after
+      being produced in the testicles, sperm will move to which structure to continue
+      to develop and be stored?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1467806639603712
+    m_Localized: Seminal vesicle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1467880903950336
+    m_Localized: Epididymis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1467917553778688
+    m_Localized: Vas deferens
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1467960604114944
+    m_Localized: Prostate gland
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468038752387072
+    m_Localized: Sentence 2 :Where is the prostate gland located in relation to the
+      bladder?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468147246448640
+    m_Localized: Just above the bladder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468152329945088
+    m_Localized: Just below the bladder neck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468157509910528
+    m_Localized: Behind the rectum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468162924756992
+    m_Localized: In front of the pubic bone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468308701986816
+    m_Localized: Sentence 3 :The ejaculatory duct is formed by the union of which
+      two structures?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468320638976000
+    m_Localized: The vas deferens and the seminal vesicle ducts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468321339424768
+    m_Localized: Vas deferens and urethra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468322123759616
+    m_Localized: Epididymis and vas deferens
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468326628442112
+    m_Localized: Seminal vesicles and prostate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468499840614400
+    m_Localized: Sentence 4 :Which part of the urethra in men passes through the
+      prostate gland?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468502889873408
+    m_Localized: Membranous urethra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468503573544960
+    m_Localized: Spongy urethra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468504160747520
+    m_Localized: Prostatic urethra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468504710201344
+    m_Localized: Anterior urethra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468694464708608
+    m_Localized: Sentence 5 :Which of the following structures belongs to the external
+      male genitalia?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468695072882688
+    m_Localized: Testicles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468821044609024
+    m_Localized: Scrotum and Penis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468823171121152
+    m_Localized: Bulbourethral gland
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468824785928192
+    m_Localized: spermatic cord
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468947066667008
+    m_Localized: Sentence 6 :Under normal conditions, fertilization between egg and
+      sperm usually takes place at which location in the fallopian tube (fallopian
+      tube)?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468949604220928
+    m_Localized: Funnel spout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468951495852032
+    m_Localized: Faucet ball
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468953009995776
+    m_Localized: Faucet waist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1468954431864832
+    m_Localized: The uterine part of the fallopian tube
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469151400574976
+    m_Localized: Sentence 7 :What is the normal position of the uterus in the pelvis?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469152138772480
+    m_Localized: Recline and fold back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469152797278208
+    m_Localized: Forward tilt and forward fold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469153397063680
+    m_Localized: Intermediary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469153971683328
+    m_Localized: Left deviation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469294170488832
+    m_Localized: Sentence 8 :Which ligament plays a major role in holding the ovary
+      attached to the posterior aspect of the broad ligament?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469294774468608
+    m_Localized: Ovarian suspensory ligament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469295357476864
+    m_Localized: Ovarian ligament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469295923707904
+    m_Localized: Ovarian mesentery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469296414441472
+    m_Localized: Round ligament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469441436696576
+    m_Localized: Sentence 9 :Which layer of the uterine wall breaks down and causes
+      bleeding during menstruation?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469442040676352
+    m_Localized: Serous layer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469442611101696
+    m_Localized: Myometrium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469443127001088
+    m_Localized: The basal layer of the endometrium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469443697426432
+    m_Localized: Functional layer of the endometrium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469600845414400
+    m_Localized: Sentence 10 :Which structure is considered the lowest part of the
+      peritoneum in the female abdomen (where fluid usually collects)?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469601487142912
+    m_Localized: Vesicouterine pouch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469602095316992
+    m_Localized: Recto-uterine pouch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469602661548032
+    m_Localized: Ovarian fossa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469603152281600
+    m_Localized: Retzius cavity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1474743947116544
+    m_Localized: Final
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
