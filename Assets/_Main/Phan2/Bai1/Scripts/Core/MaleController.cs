@@ -11,7 +11,6 @@ namespace Bai11
 
         public UIMaleMainView UIMaleMainView => MaleViewManager.Instance.GetView<UIMaleMainView>();
         private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
-        [SerializeField] private GameObject UI;
 
         private void Start()
         {
@@ -41,7 +40,6 @@ namespace Bai11
 
         private void PlayPathologicalSimulationAnim()
         {
-            UI.SetActive(true);                      // ✅ QUAN TRỌNG
             pathologicalSimulationAnimation.Play();
             ShowUIBack(StopPathologicalSimulationAnim);
         }
@@ -58,7 +56,6 @@ namespace Bai11
             UIBack.OnClickedBack(() =>
             {
                 LessonController.Instance.SetShowHideInfo(true);
-                UI.SetActive(false);
                 callback?.Invoke();
                 UIBack.Hide();
                 UIMaleMainView.Show();

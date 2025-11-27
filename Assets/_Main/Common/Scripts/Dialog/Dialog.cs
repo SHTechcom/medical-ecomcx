@@ -1,14 +1,49 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
     public TMP_Text nameText;
     public TMP_Text contentText;
+    public Button displayButton,faster,play,slower;
+    
 
     [SerializeField] string tableName = "Table";   // tên StringTable bạn đang dùng
-
+    public void OnClickDisplayButton(Action callback)
+    {
+        displayButton.onClick.RemoveAllListeners();
+        displayButton.onClick.AddListener(() =>
+        {
+            callback?.Invoke();
+        });
+    }
+    public void OnClickFaster(Action callback)
+    {
+        faster.onClick.RemoveAllListeners();
+        faster.onClick.AddListener(() =>
+        {
+            callback?.Invoke();
+        });
+    }
+    public void OnClickPlay(Action callback)
+    {
+        play.onClick.RemoveAllListeners();
+        play.onClick.AddListener(() =>
+        {
+            callback?.Invoke();
+        });
+    }
+    public void OnClickSlower(Action callback)
+    {
+        slower.onClick.RemoveAllListeners();
+        slower.onClick.AddListener(() =>
+        {
+            callback?.Invoke();
+        });
+    }
     /// <summary>
     /// name: text bình thường (KHÔNG localize)
     /// contentKey: KEY trong StringTable (CÓ localize)

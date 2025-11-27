@@ -35,10 +35,8 @@ namespace Bai11
 
         private float currentSpeed = 1f; // 1 = bình thường
 
-        [SerializeField] Button slow, fast, stop;
         bool isStop = false;
         [SerializeField] Sprite stopImage,playImage;
-        [SerializeField] Image imageNeedChange;
 
         // bật/tắt việc spawn & chạy tween
         private bool isSpawning = true;
@@ -47,10 +45,14 @@ namespace Bai11
         {
             pool = new ObjectPool<TTPathMover>(pathMoverPrefab, poolSize, transform);
 
-            slow.onClick.AddListener(OnClickSpeedDown);
-            fast.onClick.AddListener(OnClickSpeedUp);
-            stop.onClick.AddListener(OnClickStop);
-
+            var dialog = DialogManager.Instance.Get();
+            dialog.OnClickPlay(()=>
+            {
+                dialog.play.TryGetComponent<Image>(out var image);
+                OnClickStop(image);
+            });
+            dialog.OnClickSlower(OnClickSpeedDown);
+            dialog.OnClickFaster(OnClickSpeedUp);
         }
 
         private void Update()
@@ -86,8 +88,17 @@ namespace Bai11
             mover.SetSpeed(currentSpeed);
         }
 
+        public void ShowDisplay()
+        {
+            var dialog = DialogManager.Instance.Get();
+            dialog.Show();
+            dialog.play.gameObject.SetActive(true);
+            dialog.slower.gameObject.SetActive(true);
+            dialog.faster.gameObject.SetActive(true);
+        }
         public void Show()
         {
+
             gameObject.SetActive(true);
         }
 
@@ -102,18 +113,23 @@ namespace Bai11
             items.Clear();
 
             gameObject.SetActive(false);
+            var dialog = DialogManager.Instance.Get();
+            dialog.play.gameObject.SetActive(false);
+            dialog.slower.gameObject.SetActive(false);
+            dialog.faster.gameObject.SetActive(false);
+            dialog.Hide();
         }
 
         // ========== CÁC HÀM NÚT ==========
 
         // STOP: dừng lại tại chỗ, không reset, không trả pool
-        public void OnClickStop()
+        public void OnClickStop(Image image)
         {
 
             if (isStop) 
             {
                 isStop= false;
-                imageNeedChange.sprite = stopImage;
+                image.sprite = stopImage;
                 isSpawning = true;
                 ResumeAllMovers();
                 Debug.Log("[TTPathSpawner] PLAY");
@@ -121,7 +137,7 @@ namespace Bai11
             else
             {
                 isStop = true;
-                imageNeedChange.sprite = playImage;
+                image.sprite = playImage;
                 isSpawning = false;
                 PauseAllMovers();
                 Debug.Log("[TTPathSpawner] STOP (PAUSE)");

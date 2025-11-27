@@ -6,7 +6,6 @@ using TMPro;
 public class ListShowHide : MonoBehaviour
 {
     [SerializeField] private List<GameObject> obj;
-    [SerializeField] private Button showHideAllBtn;
 
     [Header("Sprites")]
     [SerializeField] private Sprite spriteShowAll;        // img1
@@ -22,35 +21,22 @@ public class ListShowHide : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        if (showHideAllBtn != null)
-        {
-            btnImage = showHideAllBtn.GetComponent<Image>();   // ⭐ lấy ảnh Button
-            showHideAllBtn.onClick.AddListener(OnClickShowHideAll);
-
-            showHideAllBtn.gameObject.SetActive(false);
-        }
     }
-
+    private void Start()
+    {
+        var dialog = DialogManager.Instance.Get();
+        dialog.OnClickDisplayButton(OnClickShowHideAll);
+    }
     public void OnInfoButtonSelected(InfoButton info)
     {
         currentSelected = info;
-
-        if (!showHideAllBtn.gameObject.activeSelf)
-            showHideAllBtn.gameObject.SetActive(true);
 
         UpdateButtonSprite();
     }
 
     public void Show()
     {
-        showHideAllBtn.gameObject.SetActive(true);
         UpdateButtonSprite();
-    }
-
-    public void Hide()
-    {
-        showHideAllBtn.gameObject.SetActive(false);
     }
 
     public void OnClickShowHideAll()

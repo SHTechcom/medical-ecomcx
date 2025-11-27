@@ -45,6 +45,8 @@ public class InfoButton : MonoBehaviour
     {
         infoDialog.Set("...", content);
         infoDialog.Show();
+        var dialog = DialogManager.Instance.Get();
+        dialog.displayButton.gameObject.SetActive(true);
         Select();
         if (!isRotateSelf)
         {
@@ -65,7 +67,6 @@ public class InfoButton : MonoBehaviour
             LessonController.Instance.LessonSpawned.GetComponent<MaleController>()?.UIMaleMainView.Show();
             LessonController.Instance.LessonSpawned.GetComponent<FemaleController>()?.UIFemaleMainView.Show();
             UIBack.Hide();
-            ListShowHide.Instance?.Hide();
             ListShowHide.Instance?.ShowAll();
             infoDialog.Hide();
         });
@@ -79,15 +80,20 @@ public class InfoButton : MonoBehaviour
         if (ListShowHide.Instance != null)
         {
             ListShowHide.Instance.OnInfoButtonSelected(this);
-            ListShowHide.Instance.Show();
+            //ListShowHide.Instance.Show();
         }
 
         OnSelectedEvent?.Invoke();
+        var dialog = DialogManager.Instance.Get();
+        dialog.displayButton.gameObject.SetActive(true);
     }
 
     public void Deselect()
     {
         OnDeselectedEvent?.Invoke();
+        var dialog = DialogManager.Instance.Get();
+        dialog.displayButton.gameObject.SetActive(false);
+
     }
 
     public void Show()

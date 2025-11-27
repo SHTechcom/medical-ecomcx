@@ -13,7 +13,6 @@ namespace Bai11
         private bool isPlayingAnimThuTinh;
         [SerializeField] private ChuaNgoaiTuCungAnim chuaNgoaiTuCungAnim;
         [SerializeField] private GameObject tuthetucung;
-        [SerializeField] private GameObject UI;
 
         public UIFemaleMainView UIFemaleMainView => FemaleViewManager.Instance.GetView<UIFemaleMainView>();
         private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
@@ -63,7 +62,6 @@ namespace Bai11
 
         private void PlayThuTinhAnim()
         {
-            UI.SetActive(true);
 
             isPlayingAnimThuTinh = true;
             animThuTinh.SetActive(isPlayingAnimThuTinh);
@@ -78,8 +76,6 @@ namespace Bai11
 
         private void PlayPathologicalSimulation()
         {
-            UI.SetActive(true);
-
             chuaNgoaiTuCungAnim.Play();
             ShowUIBack(StopPathologicalSimulation);
         }
@@ -139,7 +135,6 @@ namespace Bai11
             UIFemaleMainView.Hide();
             UIBack.OnClickedBack(() =>
             {
-                UI.SetActive(false);
                 callback?.Invoke();
                 UIBack.Hide();
                 UIFemaleMainView.Show();
