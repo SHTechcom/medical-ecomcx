@@ -7,6 +7,8 @@ public class AudioController : MonoBehaviour
     private const string PREF_IS_MUTED = "IsMuted";
     private const string PREF_VOICE_IS_MALE = "VoiceIsMale";
 
+    public static AudioController Instance { get; private set; }
+
     private AudioSource audioSource;
 
     [Header("Volume & Mute")]
@@ -17,33 +19,40 @@ public class AudioController : MonoBehaviour
     [SerializeField] private Sprite muteicon;
     [SerializeField] private Image muteImage;
 
-    [Header("Voice Clips (Object 1 & 2)")]
-    public AudioClip maleClipObj1;
-    public AudioClip femaleClipObj1;
-    public AudioClip maleClipObj2;
-    public AudioClip femaleClipObj2;
-
-    [Header("Voice Switch (1 button + 1 image)")]
-    public Button voiceSwitchButton;   // CHỈ 1 BUTTON
-    public Image giong;                // Image hiển thị icon
-    public Sprite giongNam;            // Sprite icon Nam
-    public Sprite giongNu;             // Sprite icon Nữ
+    [Header("Voice Switch (Nam / Nữ)")]
+    // KHÔNG bắt buộc gán bằng code, có thể gán trong Inspector
+    public Button voiceSwitchButton;
+    public Image giong;
+    public Sprite giongNam;
+    public Sprite giongNu;
 
     private bool isMuted = false;
     private float lastVolume = 0.5f;
-    private bool isMaleVoice = true;   // true = Nam, false = Nữ
+    private bool isMaleVoice = true; // true = Nam, false = Nữ
 
-    // 0 = chưa bấm gì, 1 = Object1, 2 = Object2
-    private int lastPlayedObjectId = 0;
+    public bool IsMaleVoice => isMaleVoice;
+
+    // InfoButton hiện đang được chọn (để gọi lại khi đổi voice)
+    [HideInInspector] public InfoButton currentInfoButton;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Start()
     {
-        // ==== Volume & Mute ====
+        // Volume & mute
         sliderVolume.minValue = 0f;
         sliderVolume.maxValue = 1f;
 
@@ -67,16 +76,16 @@ public class AudioController : MonoBehaviour
         mute.onClick.AddListener(ToggleMute);
         resetvolume.onClick.AddListener(ResetVolume);
 
-        // ==== Voice load & UI update ====
-        isMaleVoice = PlayerPrefs.GetInt(PREF_VOICE_IS_MALE, 1) == 1; // default Nam
+        // Voice
+        isMaleVoice = PlayerPrefs.GetInt(PREF_VOICE_IS_MALE, 1) == 1;
         UpdateVoiceIcon();
 
+        // Có thể hook bằng code hoặc gán trong Inspector đều được
         if (voiceSwitchButton != null)
-            voiceSwitchButton.onClick.AddListener(ToggleVoice);
+            voiceSwitchButton.onClick.AddListener(OnVoiceSwitchClicked);
     }
 
-    // ================== VOLUME / MUTE ==================
-
+    // ---------- Volume / Mute ----------
     public void OnVolumeChanged(float value)
     {
         if (!isMuted)
@@ -122,29 +131,29 @@ public class AudioController : MonoBehaviour
         PlayerPrefs.SetFloat(PREF_LAST_VOLUME, lastVolume);
     }
 
-    // ================== VOICE SWITCH (Nam ↔ Nữ) ==================
-
-    private void ToggleVoice()
+    // ---------- Voice switch ----------
+    // HÀM NÀY GÁN VÀO BUTTON SWITCH VOICE (OnClick) TRONG INSPECTOR
+    public void OnVoiceSwitchClicked()
     {
-        // Đổi trạng thái giọng
         isMaleVoice = !isMaleVoice;
         PlayerPrefs.SetInt(PREF_VOICE_IS_MALE, isMaleVoice ? 1 : 0);
         UpdateVoiceIcon();
 
-        // Xác định object hiện tại dựa trên clip đang phát
-        int currentObj = GetCurrentObjectId();
-        Debug.Log("ToggleVoice - currentObj = " + currentObj + ", isMaleVoice = " + isMaleVoice);
+        // Dừng audio cũ
+        if (audioSource.isPlaying)
+            audioSource.Stop();
 
-        if (currentObj == 1)
+        // Gọi InfoButton hiện tại chơi lại audio theo giọng mới
+        if (currentInfoButton != null)
         {
-            PlayVoice_Object1();
+            Debug.Log("[AudioController] Switch voice, replay from InfoButton: " + currentInfoButton.name);
+            currentInfoButton.PlayAudioForCurrentVoice();
         }
-        else if (currentObj == 2)
+        else
         {
-            PlayVoice_Object2();
+            Debug.Log("[AudioController] Switch voice but NO currentInfoButton");
         }
     }
-
 
     private void UpdateVoiceIcon()
     {
@@ -152,38 +161,20 @@ public class AudioController : MonoBehaviour
             giong.sprite = isMaleVoice ? giongNam : giongNu;
     }
 
-    // ================== PLAY AUDIO ==================
-
-    private void PlayAudio(AudioClip clip)
+    // ---------- Play / Stop ----------
+    public void Play(AudioClip clip)
     {
         if (clip == null) return;
+        if (isMuted) return;
 
         audioSource.clip = clip;
-        audioSource.Play();      // nếu đang chạy clip cũ -> tự restart bằng clip mới
+        audioSource.time = 0f;
+        audioSource.Play();
     }
 
-    public void PlayVoice_Object1()
+    public void Stop()
     {
-        lastPlayedObjectId = 1;
-        AudioClip clip = isMaleVoice ? maleClipObj1 : femaleClipObj1;
-        PlayAudio(clip);
+        if (audioSource.isPlaying)
+            audioSource.Stop();
     }
-
-    public void PlayVoice_Object2()
-    {
-        lastPlayedObjectId = 2;
-        AudioClip clip = isMaleVoice ? maleClipObj2 : femaleClipObj2;
-        PlayAudio(clip);
-    }
-    private int GetCurrentObjectId()
-    {
-        if (audioSource.clip == maleClipObj1 || audioSource.clip == femaleClipObj1)
-            return 1;
-
-        if (audioSource.clip == maleClipObj2 || audioSource.clip == femaleClipObj2)
-            return 2;
-
-        return lastPlayedObjectId; // fallback
-    }
-
 }

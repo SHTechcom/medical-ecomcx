@@ -12,12 +12,17 @@ public class InfoButton : MonoBehaviour
     public Vector3 rotationTarget;
     public float distance = 0.3f;
 
-    // ⭐ THÊM: ref để bạn gán bộ phận 3D tương ứng
     [Header("Kéo bộ phận 3D cần giữ lại vào đây")]
     public GameObject targetPart;
 
+    [Header("Audio cho content này (có thể để trống)")]
+    public AudioClip maleClip;
+    public AudioClip femaleClip;
+    public bool playAudioOnClick = true;
+
     public UnityEvent OnSelectedEvent;
     public UnityEvent OnDeselectedEvent;
+
     [SerializeField] string content;
     private Dialog infoDialog => DialogManager.Instance.Get();
     private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
@@ -37,17 +42,33 @@ public class InfoButton : MonoBehaviour
 
     void LateUpdate()
     {
-        float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        transform.localScale = Vector3.one * distance;
+        float d = Vector3.Distance(transform.position, Camera.main.transform.position);
+        transform.localScale = Vector3.one * d;
     }
 
     private void OnClick()
     {
+        // Text dialog
         infoDialog.Set("...", content);
         infoDialog.Show();
         var dialog = DialogManager.Instance.Get();
         dialog.displayButton.gameObject.SetActive(true);
+
+        // Đăng ký InfoButton hiện tại cho AudioController
+        if (AudioController.Instance != null)
+        {
+            AudioController.Instance.currentInfoButton = this;
+
+            if (playAudioOnClick)
+            {
+                Debug.Log("[InfoButton] OnClick play audio: " + name);
+                PlayAudioForCurrentVoice();
+            }
+        }
+
+        // ======= PHẦN CŨ CỦA BẠN =======
         Select();
+
         if (!isRotateSelf)
         {
             CameraController.Instance.OnCameraAroundTarget(transform, distance);
@@ -56,7 +77,7 @@ public class InfoButton : MonoBehaviour
         {
             CameraController.Instance.OnClickAndDrag(positionTarget, rotationTarget);
         }
-        //
+
         LessonController.Instance.LessonSpawned.GetComponent<MaleController>()?.UIMaleMainView.Hide();
         LessonController.Instance.LessonSpawned.GetComponent<FemaleController>()?.UIFemaleMainView.Hide();
         UIBack.Show();
@@ -72,15 +93,39 @@ public class InfoButton : MonoBehaviour
         });
     }
 
+    public void PlayAudioForCurrentVoice()
+    {
+        var ac = AudioController.Instance;
+        if (ac == null) return;
+
+        AudioClip clipToPlay = null;
+
+        if (ac.IsMaleVoice)
+        {
+            clipToPlay = maleClip;
+        }
+        else
+        {
+            clipToPlay = femaleClip;
+        }
+
+        if (clipToPlay == null)
+        {
+            Debug.Log("[InfoButton] No clip for voice. male=" + maleClip + ", female=" + femaleClip);
+            ac.Stop();
+            return;
+        }
+
+        ac.Play(clipToPlay);
+    }
+
     public void Select()
     {
         LessonController.Instance.SelectInfoButton(this);
 
-        // ⭐ Thông báo cho ListShowHide biết InfoButton nào vừa được chọn
         if (ListShowHide.Instance != null)
         {
             ListShowHide.Instance.OnInfoButtonSelected(this);
-            //ListShowHide.Instance.Show();
         }
 
         OnSelectedEvent?.Invoke();
@@ -93,7 +138,6 @@ public class InfoButton : MonoBehaviour
         OnDeselectedEvent?.Invoke();
         var dialog = DialogManager.Instance.Get();
         dialog.displayButton.gameObject.SetActive(false);
-
     }
 
     public void Show()
