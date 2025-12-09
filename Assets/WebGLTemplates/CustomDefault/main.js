@@ -1,8 +1,25 @@
 const unityCanvas = document.querySelector("#unity-canvas");
+const tangtocBtn = document.querySelector("#tangtoc-button");
+const giamtocBtn = document.querySelector("#giamtoc-button");
 const captureButton = document.querySelector("#capture-button");
 const downloadScreenshotLink = document.querySelector("#download-link");
 const downloadBtn = document.getElementById("downloadScreenshot");
 
+function tangtoc() {
+    if (typeof unityInstance !== "undefined") {
+        unityInstance.SendMessage("TimeSpeed", "TangToc");
+    } else {
+        console.error("Unity instance chưa được khởi tạo!");
+    }
+}
+
+function giamtoc() {
+    if (typeof unityInstance !== "undefined") {
+        unityInstance.SendMessage("TimeSpeed", "GiamToc");
+    } else {
+        console.error("Unity instance chưa được khởi tạo!");
+    }
+}
 
 function captureScreenshot() {
     if (typeof unityInstance !== "undefined") {
