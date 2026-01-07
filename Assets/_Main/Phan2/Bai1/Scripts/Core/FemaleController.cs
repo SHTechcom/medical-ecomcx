@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Sirenix.Utilities;
 using UnityEngine;
 
@@ -17,6 +17,13 @@ namespace Bai11
         public UIFemaleMainView UIFemaleMainView => FemaleViewManager.Instance.GetView<UIFemaleMainView>();
         private UIBack UIBack => GameViewManager.Instance.GetView<UIBack>();
 
+        [Header("Thu tinh")]
+        public AudioClip maleClipThuTinh;
+        public AudioClip femaleClipThuTinh;
+        [Header("Benh ly")]
+        public AudioClip maleClipBenhLy;
+        public AudioClip femaleClipBenhLy;
+
         private void Start()
         {
             UIFemaleMainView.OnClickedBack(Back);
@@ -28,7 +35,31 @@ namespace Bai11
 
             ResetStatus();
         }
+        public void PlayAudioBenhLy(AudioClip maleClip, AudioClip femaleClip)
+        {
+            var ac = AudioController.Instance;
+            if (ac == null) return;
 
+            AudioClip clipToPlay = null;
+
+            if (ac.IsMaleVoice)
+            {
+                clipToPlay = maleClip;
+            }
+            else
+            {
+                clipToPlay = femaleClip;
+            }
+
+            if (clipToPlay == null)
+            {
+                Debug.Log("[InfoButton] No clip for voice. male=" + maleClip + ", female=" + femaleClip);
+                ac.Stop();
+                return;
+            }
+
+            ac.Play(clipToPlay);
+        }
         private void Back()
         {
             LessonController.Instance.ResetStatus();
@@ -62,9 +93,12 @@ namespace Bai11
 
         private void PlayThuTinhAnim()
         {
-
+            var dialog = DialogManager.Instance.Get();
+            dialog.Show();
+            dialog.Set("...", "Quan sát mô phỏng quá trình thụ tinh");
             isPlayingAnimThuTinh = true;
             animThuTinh.SetActive(isPlayingAnimThuTinh);
+            PlayAudioBenhLy(maleClipThuTinh, femaleClipThuTinh);
             ShowUIBack(StopThuTinhAnim);
         }
 
@@ -76,7 +110,11 @@ namespace Bai11
 
         private void PlayPathologicalSimulation()
         {
+            var dialog = DialogManager.Instance.Get();
+            dialog.Show();
+            dialog.Set("...", "Quan sát mô phỏng quá trình chửa ngoài tử cung thường xảy ra ở đoạn eo vị trí hẹp nhất và rất nguy hiểm");
             chuaNgoaiTuCungAnim.Play();
+            PlayAudioBenhLy(maleClipBenhLy, femaleClipBenhLy);
             ShowUIBack(StopPathologicalSimulation);
         }
 

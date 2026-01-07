@@ -363,6 +363,39 @@ MonoBehaviour:
     m_Localized: Voice
     m_Metadata:
       m_Items: []
+  - m_Id: 9943775915986944
+    m_Localized: The milk ducts function to transport milk from the production site
+      to the nipple for release.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9943908971892736
+    m_Localized: The breasts produce and secrete milk to nourish the baby after birth,
+      and also play a role in hormonal regulation and secondary sexual characteristics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9944108566237184
+    m_Localized: The nipple's function is to release milk, stimulating the milk let-down
+      reflex when the baby is breastfeeding
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9944728098492416
+    m_Localized: Observe the simulation of the seminal duct
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9944819966332928
+    m_Localized: Observation of a pathological simulation of an enlarged prostate
+      gland causing urethral compression, leading to urinary retention
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9945167925792768
+    m_Localized: Observe a simulation of the fertilization process
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9945214180577280
+    m_Localized: Observations simulating the process of ectopic pregnancy show that
+      it typically occurs at the narrowest and most dangerous point in the cervix
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

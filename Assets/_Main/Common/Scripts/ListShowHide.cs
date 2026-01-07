@@ -25,6 +25,7 @@ public class ListShowHide : MonoBehaviour
     private void Start()
     {
         var dialog = DialogManager.Instance.Get();
+        dialog.Hide();
         dialog.OnClickDisplayButton(OnClickShowHideAll);
     }
     public void OnInfoButtonSelected(InfoButton info)
